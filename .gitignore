@@ -1,5 +1,6 @@
 *.csv
 *.sqlite
 *.Rhistory
+__pycache__
 data
 rsconnect
