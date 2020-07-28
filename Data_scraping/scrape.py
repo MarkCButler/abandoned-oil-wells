@@ -25,11 +25,20 @@ _DELAY = 5
 # issues, I am including my current _USER_AGENT with download requests.
 _USER_AGENT = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0'
 
+# Scraped data is downloaded in subdirectories of _DATA_ROOT.  If the directory
+# does not already exist in the working directory, it is created.
 _DATA_ROOT = 'data'
+
+# Testing shows that the html strings obtained from RRC using the requests
+# module are significantly different than what is obtained by the browser, even
+# when user-agent is specified in the request header.  Prettified versions of
+# the html programmatically are saved in _SAVED_PAGES inside _DATA_ROOT.  The
+# saved html is used to develop detailed scraping commands.
+_SAVED_PAGES = 'saved_pages'
 
 
 def _get(url):
-    """Perform repetitive tasks involved in fetching data from a url."""
+    """Perform repetitive tasks involved executing HTTP GET."""
 
     headers = {'user-agent': _USER_AGENT}
     r = requests.get(url, headers = headers)
@@ -43,7 +52,13 @@ def _get(url):
     return r
 
 
-def get_html(url):
+def _check_parents(file_path):
+    """Check whether the parents of a file path exist and make them if not."""
+    parent = file_path.parents[0]
+    parent.mkdir(parents = True, exist_ok = True)
+
+
+def get_html_string(url):
     """Return the html string for a url, raising an exception if unsuccessful."""
     r = _get(url)
     return r.text
@@ -62,30 +77,35 @@ def get_binary_file(url, relative_path):
     r = _get(url)
 
     file_path = Path(_DATA_ROOT) / relative_path
-
-    # The parent directory must be created before the file is saved.
-    parent = file_path.parents[0]
-    parent.mkdir(parents = True, exist_ok = True)
-
+    _check_parents(file_path)
     file_path.write_bytes(r.content)
+
+
+def get_soup(url, filename):
+    """Get the BeautifulSoup treep for a url and save prettified version of the html. """
+    html_string = get_html_string(url)
+    soup = BeautifulSoup(html_string, 'html.parser')
+    html_string = soup.prettify()
+
+    file_path = Path(_DATA_ROOT) / _SAVED_PAGES / filename
+    _check_parents(file_path)
+    file_path.write_text(html_string)
+
+    return soup
 
 
 def get_cleanup_reports():
     """Scrape reports on efforts to plug and clean up abandoned wells."""
 
     url = 'https://www.rrc.state.tx.us/oil-gas/environmental-cleanup-programs/oil-gas-regulation-and-cleanup-fund/'
-    html_string = get_html(url)
-    # DEBUG CODE: Save copy of html string for testing.
-    Path('reports.txt').write_text(html_string)
+    soup = get_soup(url, 'cleanup_reports.html')
 
 
 def get_distribution_reports():
     """Scrape reports giving the distribution of wells (including abandoned wells)."""
 
     url = 'https://www.rrc.state.tx.us/oil-gas/research-and-statistics/well-information/well-distribution-tables-well-counts-by-type-and-status/'
-    html_string = get_html(url)
-    # DEBUG CODE: Save copy of html string for testing.
-    Path('distributions.txt').write_text(html_string)
+    soup = get_soup(url, 'well_distributions.html')
 
 
 def get_districts():
@@ -93,9 +113,7 @@ def get_districts():
     counties/county codes."""
 
     url = 'https://www.rrc.state.tx.us/about-us/organization-activities/rrc-locations/counties-by-dist/'
-    html_string = get_html(url)
-    # DEBUG CODE: Save copy of html string for testing.
-    Path('districts.txt').write_text(html_string)
+    soup = get_soup(url, 'districts.html')
 
 
 def get_abandoned_wells_report():
@@ -103,9 +121,7 @@ def get_abandoned_wells_report():
     currently need to plugged."""
 
     url = 'https://www.rrc.state.tx.us/oil-gas/research-and-statistics/well-information/orphan-wells-12-months/'
-    html_string = get_html(url)
-    # DEBUG CODE: Save copy of html string for testing.
-    Path('abandoned_wells.txt').write_text(html_string)
+    soup = get_soup(url, 'abandoned_wells.html')
 
 
 def main():
