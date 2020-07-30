@@ -229,8 +229,55 @@ def _has_string(tag):
 def get_distribution_reports():
     """Scrape reports giving the distribution of wells (including abandoned wells)."""
 
+    # Internal function to generate a filename based on the text for an link tag
+    # (a tag), if there is text in the tag.  This is needed because a link tag
+    # may have no text (i.e., not be visible in the browser), or it may have
+    # text included in the tag contents even when tag.string is None.  If the
+    # text is included in tag.contents, there may be other junk (such as <br/>)
+    # in tag.contents.  Since tag.contents is messy, we need to filter it with
+    # the function below.
+    def get_filename(tag):
+        for element in tag.contents:
+            if re.search(r'\d+', str(element)):
+                return element.strip().replace(' ', '_').replace(',', '') + '.pdf'
+        return None
+
+
     url = 'https://www.rrc.state.tx.us/oil-gas/research-and-statistics/well-information/well-distribution-tables-well-counts-by-type-and-status/'
     soup = get_soup(url, 'well_distributions.html')
+
+    distribution_reports_dir = Path('Well_distribution')
+
+    table = soup.table
+    rows = table.find_all('tr')
+    table_subsections = [{'header': 0, 'data': 1},
+                         {'header': 2, 'data': 3}]
+    for subsection in table_subsections:
+        header_row = rows[subsection['header']]
+        year_tags = header_row.find_all(_has_string)
+        years = [year_tag.string.strip()
+                 for year_tag in year_tags]
+        year_dirs = [distribution_reports_dir / year
+                     for year in years]
+
+        data_row = rows[subsection['data']]
+        cells = data_row.find_all('td')
+        for index, cell in enumerate(cells):
+            a_tags = cell.find_all('a')
+            for a_tag in a_tags:
+                # What we want to scrape is the links with text on the page, but
+                # some of the a tags in table cells do hot have any text.  These
+                # should be skipped.
+                #
+                # The function get_filename tries to extract string that can be
+                # used for the filename, returning none if no relevant text
+                # could be found for the tag.  As a result, a tags with no text
+                # are skipped.
+                filename = get_filename(a_tag)
+                if filename:
+                    relative_path = year_dirs[index] / filename
+                    url = _BASE_URL + a_tag['href']
+                    get_binary_file(url, relative_path)
 
 
 def get_districts():
