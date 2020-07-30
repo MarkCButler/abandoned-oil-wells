@@ -9,12 +9,18 @@ created in the working directory if it does not already exist.
 """
 # Standard-library imports
 from pathlib import Path
+import pprint
 import re
 import time
 
 # Third-party imports
 from bs4 import BeautifulSoup
 import requests
+
+# Import and initialize tika for pdf parsing
+import tika
+tika.initVM()
+from tika import parser
 
 # _BASE_URL is prepended to relative urls in following links.
 _BASE_URL = 'https://www.rrc.state.tx.us'
@@ -39,8 +45,9 @@ _DATA_ROOT = 'data'
 # saved html is used to develop detailed scraping commands.
 _SAVED_PAGES = 'saved_pages'
 
+
 ########################################
-# Functions that get fetch/save data
+# Functions for fetching and saving data
 ########################################
 
 def _get(url):
@@ -98,6 +105,36 @@ def get_soup(url, filename):
     file_path.write_text(html_string)
 
     return soup
+
+
+########################################
+# Function to parse and save text data
+# from a pdf file
+########################################
+
+def parse_pdf(filename, parent):
+    """Use tika to parse a pdf file and save the results.
+
+    For a pdf file named Fiscal_Year_2019.pdf, two files are saved:
+    Fiscal_Year_2019_metadata.txt, Fiscal_Year_2019_content.txt
+    """
+    parent = Path(parent)
+    pdf_filename = Path(filename)
+    metadata_filename = pdf_filename.stem + '_metadata.txt'
+    content_filename = pdf_filename.stem + '_parsed.txt'
+
+    # Parse the downloaded pdf.
+    pdf_path = str(parent / pdf_filename)
+    parsed = parser.from_file(pdf_path)
+
+    # Save the parsed text.  Since parsed['metadata'] is a dictionary, we need
+    # to use pprint to get a readable text file.
+    with open(parent / metadata_filename, 'w') as metadata_file:
+        pprint.pprint(parsed['metadata'], stream = metadata_file,
+                      indent = 4, width = 130)
+
+    (parent / content_filename).write_text(parsed['content'])
+
 
 ########################################
 # URL-specific scraping functions
@@ -175,15 +212,19 @@ def _get_annual_reports(header):
     annual_reports_dir = Path('Cleanup_reports') / 'Annual'
     a_tags = table.find_all('a')
     for a_tag in a_tags:
-        filename = a_tag.string.strip().replace(' ', '_') + '.pdf'
+        filename = a_tag.string.strip().replace(' ', '_') +  '.pdf'
         relative_path = annual_reports_dir / filename
         url = _BASE_URL + a_tag['href']
         get_binary_file(url, relative_path)
+
+        parse_pdf(filename,
+                  Path(_DATA_ROOT) / annual_reports_dir)
 
 
 def _has_string(tag):
     """Search function used with find_all in BeautifulSoup."""
     return tag.string
+
 
 def get_distribution_reports():
     """Scrape reports giving the distribution of wells (including abandoned wells)."""
@@ -206,6 +247,7 @@ def get_abandoned_wells_report():
 
     url = 'https://www.rrc.state.tx.us/oil-gas/research-and-statistics/well-information/orphan-wells-12-months/'
     soup = get_soup(url, 'abandoned_wells.html')
+
 
 ########################################
 # Main function
