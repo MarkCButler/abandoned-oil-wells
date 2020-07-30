@@ -226,7 +226,7 @@ def _has_string(tag):
     return tag.string
 
 
-def get_distribution_reports():
+def get_well_distribution_reports():
     """Scrape reports giving the distribution of wells (including abandoned wells)."""
 
     # Internal function to generate a filename based on the text for an link tag
@@ -246,7 +246,7 @@ def get_distribution_reports():
     url = 'https://www.rrc.state.tx.us/oil-gas/research-and-statistics/well-information/well-distribution-tables-well-counts-by-type-and-status/'
     soup = get_soup(url, 'well_distributions.html')
 
-    distribution_reports_dir = Path('Well_distribution')
+    distribution_reports_dir = Path('Well_distributions')
 
     table = soup.table
     rows = table.find_all('tr')
@@ -292,8 +292,21 @@ def get_abandoned_wells_report():
     """Download an excel file giving information about abandoned wells that
     currently need to plugged."""
 
+    def has_excel_string(tag):
+        if tag.string and 'excel version' in tag.string.lower():
+            return True
+        else:
+            return False
+
     url = 'https://www.rrc.state.tx.us/oil-gas/research-and-statistics/well-information/orphan-wells-12-months/'
     soup = get_soup(url, 'abandoned_wells.html')
+
+    a_tag = soup.find(has_excel_string)
+    filename = a_tag['title']
+    relative_path = Path('Abandoned_wells') / filename
+    url = _BASE_URL + a_tag['href']
+    get_binary_file(url, relative_path)
+
 
 
 ########################################
@@ -304,7 +317,7 @@ def main():
     """Execute the functions defined in this module to collect data on abandoned
     oil and gas wells."""
     get_cleanup_reports()
-    get_distribution_reports()
+    get_well_distribution_reports()
     get_districts()
     get_abandoned_wells_report()
 
