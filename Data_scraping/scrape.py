@@ -8,9 +8,11 @@ Scraped data is saved in subdirectories of a directory named data, which is
 created in the working directory if it does not already exist.
 """
 # Standard-library imports
+import logging
 from pathlib import Path
 import pprint
 import re
+import sys
 import time
 
 # Third-party imports
@@ -55,8 +57,11 @@ def _get(url):
 
     headers = {'user-agent': _USER_AGENT}
     r = requests.get(url, headers = headers)
-    r.raise_for_status()
-    print(f'Successfully downloaded data for\n{url}\n', flush = True)
+    if _failed(r):
+        message = f'Failed to download\n{url}\n\nHTTP response:\n\n{r.text}\n'
+        logging.error(message)
+    else:
+        logging.info(f'Successfully downloaded data for\n{url}\n')
 
     # Enforce a delay immediately after performing the request, so that there is
     # no need to worry about this in other parts of the code.
@@ -65,10 +70,16 @@ def _get(url):
     return r
 
 
-def _check_parents(file_path):
-    """Check whether the parents of a file path exist and make them if not."""
-    parent = file_path.parents[0]
-    parent.mkdir(parents = True, exist_ok = True)
+def _failed(response):
+    """Return true if the response to an HTTP request indicates an error."""
+    # MDN indicates the following:
+    #
+    # 400 - 499   client errors
+    # 500 - 599   server errors
+    #
+    # I don't see any indication that there are codes about 599, but I won't
+    # assume that any code >= 400 is an error
+    return response.status_code >= 400 and response.status_code <= 599
 
 
 def get_html_string(url):
@@ -89,9 +100,14 @@ def get_binary_file(url, relative_path):
     """
     r = _get(url)
 
-    file_path = Path(_DATA_ROOT) / relative_path
-    _check_parents(file_path)
-    file_path.write_bytes(r.content)
+    # From testing, some of the links to binary files are dead, so check whether
+    # the HTTP request succeeded before saving data.
+    if not _failed(r):
+        file_path = Path(_DATA_ROOT) / relative_path
+        _check_parents(file_path)
+        file_path.write_bytes(r.content)
+        logging.info(f'Saved binary data to\n{file_path}\n')
+
 
 
 def get_soup(url, filename):
@@ -125,6 +141,7 @@ def parse_pdf(filename, parent):
 
     # Parse the downloaded pdf.
     pdf_path = str(parent / pdf_filename)
+    logging.info(f'Parsing pdf file\n{pdf_path}\n')
     parsed = parser.from_file(pdf_path)
 
     # Save the parsed text.  Since parsed['metadata'] is a dictionary, we need
@@ -133,7 +150,8 @@ def parse_pdf(filename, parent):
         pprint.pprint(parsed['metadata'], stream = metadata_file,
                       indent = 4, width = 130)
 
-    (parent / content_filename).write_text(parsed['content'])
+    if parsed['content']:
+        (parent / content_filename).write_text(parsed['content'])
 
 
 ########################################
@@ -186,7 +204,10 @@ def _get_quarterly_reports(header):
 
     # Create a list of subdirectories in which the quarterly reports for an
     # individual year will be stored.
-    year_tags = rows[0].find_all(_has_string)
+    year_tags = rows[0].find_all(
+        # Tests whether a tag is type 'td' and also has a string
+        lambda tag: tag.string if tag.name == 'td' else False
+        )
     years = [year_tag.string.strip().replace(' ', '_')
              for year_tag in year_tags]
     quarterly_reports_dir = Path('Cleanup_reports') / 'Quarterly'
@@ -254,7 +275,10 @@ def get_well_distribution_reports():
                          {'header': 2, 'data': 3}]
     for subsection in table_subsections:
         header_row = rows[subsection['header']]
-        year_tags = header_row.find_all(_has_string)
+        year_tags = header_row.find_all(
+            # Tests whether a tag has a string
+            lambda tag: tag.string
+            )
         years = [year_tag.string.strip()
                  for year_tag in year_tags]
         year_dirs = [distribution_reports_dir / year
@@ -280,14 +304,6 @@ def get_well_distribution_reports():
                     get_binary_file(url, relative_path)
 
 
-def get_districts():
-    """Scrape a table of RRC districts/district codes and corresponding
-    counties/county codes."""
-
-    url = 'https://www.rrc.state.tx.us/about-us/organization-activities/rrc-locations/counties-by-dist/'
-    soup = get_soup(url, 'districts.html')
-
-
 def get_abandoned_wells_report():
     """Download an excel file giving information about abandoned wells that
     currently need to plugged."""
@@ -308,6 +324,30 @@ def get_abandoned_wells_report():
     get_binary_file(url, relative_path)
 
 
+########################################
+# Utility functions
+########################################
+
+def _check_parents(file_path):
+    """Check whether the parents of a file path exist and make them if not."""
+    parent = file_path.parents[0]
+    parent.mkdir(parents = True, exist_ok = True)
+
+
+def _initialize_logging():
+    """Configure logging to go to a log file as well as to stdout.
+
+    Print a message to stdout giving the location of the log file.
+    """
+    log_file = Path(_DATA_ROOT) / 'scrape.log'
+    _check_parents(log_file)
+    file_handler = logging.FileHandler(filename = str(log_file), mode = 'w')
+    console_handler = logging.StreamHandler(sys.stdout)
+    logging.basicConfig(level=logging.INFO,
+                        format = '%(levelname)s: %(message)s',
+                        handlers=[file_handler, console_handler])
+    print(f'A log is being saved to {log_file} as well as printed to screen.\n')
+
 
 ########################################
 # Main function
@@ -316,9 +356,9 @@ def get_abandoned_wells_report():
 def main():
     """Execute the functions defined in this module to collect data on abandoned
     oil and gas wells."""
+    _initialize_logging()
     get_cleanup_reports()
     get_well_distribution_reports()
-    get_districts()
     get_abandoned_wells_report()
 
 
