@@ -108,6 +108,8 @@ def get_binary_file(url, relative_path):
         file_path.write_bytes(r.content)
         logging.info(f'Saved binary data to\n{file_path}\n')
 
+        if file_path.suffix == '.pdf':
+            parse_pdf(file_path)
 
 
 def get_soup(url, filename):
@@ -128,30 +130,39 @@ def get_soup(url, filename):
 # from a pdf file
 ########################################
 
-def parse_pdf(filename, parent):
+def parse_pdf(file_path):
     """Use tika to parse a pdf file and save the results.
 
-    For a pdf file named Fiscal_Year_2019.pdf, two files are saved:
-    Fiscal_Year_2019_metadata.txt, Fiscal_Year_2019_content.txt
+    If text is successfully extracted from the pdf file, two files are saved,
+    one containing metadata for the pdf file and other containing the extracted
+    text content.
+
+    For a pdf file named Fiscal_Year_2019.pdf, the filenames for saved metadata
+    and text content are Fiscal_Year_2019_metadata.txt,
+    Fiscal_Year_2019_content.txt
     """
-    parent = Path(parent)
-    pdf_filename = Path(filename)
-    metadata_filename = pdf_filename.stem + '_metadata.txt'
-    content_filename = pdf_filename.stem + '_parsed.txt'
+    parent = file_path.parent
+    metadata_filename = file_path.stem + '_metadata.txt'
+    content_filename = file_path.stem + '_parsed.txt'
 
     # Parse the downloaded pdf.
-    pdf_path = str(parent / pdf_filename)
-    logging.info(f'Parsing pdf file\n{pdf_path}\n')
-    parsed = parser.from_file(pdf_path)
-
-    # Save the parsed text.  Since parsed['metadata'] is a dictionary, we need
-    # to use pprint to get a readable text file.
-    with open(parent / metadata_filename, 'w') as metadata_file:
-        pprint.pprint(parsed['metadata'], stream = metadata_file,
-                      indent = 4, width = 130)
+    logging.info(f'Attempting to extract text content from pdf file\n{file_path}\n')
+    parsed = parser.from_file(str(file_path))
 
     if parsed['content']:
-        (parent / content_filename).write_text(parsed['content'])
+
+        # Save the parsed text.  Since parsed['metadata'] is a dictionary, we need
+        # to use pprint to get a readable text file.
+        with open(parent / metadata_filename, 'w') as metadata_file:
+            pprint.pprint(parsed['metadata'], stream = metadata_file,
+                          indent = 4, width = 130)
+
+        parsed_content_path = parent / content_filename
+        parsed_content_path.write_text(parsed['content'])
+        logging.info(f'Saved parsed text to\n{parsed_content_path}\n')
+
+    else:
+        logging.info(f'No text content found in pdf file\n{file_path}\n')
 
 
 ########################################
@@ -193,6 +204,7 @@ def get_cleanup_reports():
     header = soup.find(id = 'OCP_annual').parent
     _get_annual_reports(header)
 
+
 # The helper functions _get_quarterly reports and _get_annual_reports could be
 # defined as inner functions of get_cleanup_reports, but they are instead
 # defined at internal module functions in order to keep all functions relatively
@@ -210,7 +222,7 @@ def _get_quarterly_reports(header):
         )
     years = [year_tag.string.strip().replace(' ', '_')
              for year_tag in year_tags]
-    quarterly_reports_dir = Path('Cleanup_reports') / 'Quarterly'
+    quarterly_reports_dir = Path('cleanup_reports') / 'quarterly'
     year_dirs = [quarterly_reports_dir / year
                  for year in years]
 
@@ -230,7 +242,7 @@ def _get_quarterly_reports(header):
 
 def _get_annual_reports(header):
     table = header.find_next_sibling()
-    annual_reports_dir = Path('Cleanup_reports') / 'Annual'
+    annual_reports_dir = Path('cleanup_reports') / 'annual'
     a_tags = table.find_all('a')
     for a_tag in a_tags:
         filename = a_tag.string.strip().replace(' ', '_') +  '.pdf'
@@ -238,20 +250,12 @@ def _get_annual_reports(header):
         url = _BASE_URL + a_tag['href']
         get_binary_file(url, relative_path)
 
-        parse_pdf(filename,
-                  Path(_DATA_ROOT) / annual_reports_dir)
-
-
-def _has_string(tag):
-    """Search function used with find_all in BeautifulSoup."""
-    return tag.string
-
 
 def get_well_distribution_reports():
     """Scrape reports giving the distribution of wells (including abandoned wells)."""
 
     # Internal function to generate a filename based on the text for an link tag
-    # (a tag), if there is text in the tag.  This is needed because a link tag
+    # (<a ...>), if there is text in the tag.  This is needed because a link tag
     # may have no text (i.e., not be visible in the browser), or it may have
     # text included in the tag contents even when tag.string is None.  If the
     # text is included in tag.contents, there may be other junk (such as <br/>)
@@ -263,45 +267,35 @@ def get_well_distribution_reports():
                 return element.strip().replace(' ', '_').replace(',', '') + '.pdf'
         return None
 
-
     url = 'https://www.rrc.state.tx.us/oil-gas/research-and-statistics/well-information/well-distribution-tables-well-counts-by-type-and-status/'
     soup = get_soup(url, 'well_distributions.html')
 
-    distribution_reports_dir = Path('Well_distributions')
+    distribution_reports_dir = Path('well_distributions')
 
-    table = soup.table
-    rows = table.find_all('tr')
-    table_subsections = [{'header': 0, 'data': 1},
-                         {'header': 2, 'data': 3}]
-    for subsection in table_subsections:
-        header_row = rows[subsection['header']]
-        year_tags = header_row.find_all(
-            # Tests whether a tag has a string
-            lambda tag: tag.string
-            )
-        years = [year_tag.string.strip()
-                 for year_tag in year_tags]
-        year_dirs = [distribution_reports_dir / year
-                     for year in years]
-
-        data_row = rows[subsection['data']]
-        cells = data_row.find_all('td')
-        for index, cell in enumerate(cells):
-            a_tags = cell.find_all('a')
-            for a_tag in a_tags:
-                # What we want to scrape is the links with text on the page, but
-                # some of the a tags in table cells do hot have any text.  These
-                # should be skipped.
-                #
-                # The function get_filename tries to extract string that can be
-                # used for the filename, returning none if no relevant text
-                # could be found for the tag.  As a result, a tags with no text
-                # are skipped.
-                filename = get_filename(a_tag)
-                if filename:
-                    relative_path = year_dirs[index] / filename
-                    url = _BASE_URL + a_tag['href']
-                    get_binary_file(url, relative_path)
+    # The links to monthly reports on well distribution are organized into a
+    # table.  The first and third row of the table are headings corresponding to
+    # distinct years.  However, not all yearly headings are correct.  (For
+    # example, the heading for 2012 corresponds to annual reports for 2011.)
+    #
+    # Rather than using the headings to organize the downloaded files into
+    # different subdirectories, I will extract all links in the table and then use
+    # regular expressions to sort them into subdirectories based on year.
+    a_tags = soup.table.find_all('a')
+    for a_tag in a_tags:
+        # What we want to scrape is the links with text on the page, but
+        # some of the a tags in table cells do hot have any text.  These
+        # should be skipped.
+        #
+        # The function get_filename tries to extract string that can be
+        # used for the filename, returning none if no relevant text
+        # could be found for the tag.  As a result, a tags with no text
+        # are skipped.
+        filename = get_filename(a_tag)
+        if filename:
+            year = re.search(r'(\d{4})\.', filename).group(1)
+            relative_path = distribution_reports_dir / year / filename
+            url = _BASE_URL + a_tag['href']
+            get_binary_file(url, relative_path)
 
 
 def get_abandoned_wells_report():
@@ -319,7 +313,7 @@ def get_abandoned_wells_report():
 
     a_tag = soup.find(has_excel_string)
     filename = a_tag['title']
-    relative_path = Path('Abandoned_wells') / filename
+    relative_path = Path('abandoned_wells') / filename
     url = _BASE_URL + a_tag['href']
     get_binary_file(url, relative_path)
 
@@ -360,7 +354,6 @@ def main():
     get_cleanup_reports()
     get_well_distribution_reports()
     get_abandoned_wells_report()
-
 
 if __name__ == '__main__':
     main()
