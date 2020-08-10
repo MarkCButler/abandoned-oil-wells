@@ -17,6 +17,7 @@ import time
 
 # Third-party imports
 from bs4 import BeautifulSoup
+import pandas as pd
 import requests
 
 # Import and initialize tika for pdf parsing
@@ -57,9 +58,14 @@ def _get(url):
 
     headers = {'user-agent': _USER_AGENT}
     r = requests.get(url, headers = headers)
-    if _failed(r):
+    try:
+        r.raise_for_status()
+    except requests.HTTPError:
         message = f'Failed to download\n{url}\n\nHTTP response:\n\n{r.text}\n'
         logging.error(message)
+        # This raise should be caught by the highest function in the stack that
+        # is concerned with processing data from the url.
+        raise
     else:
         logging.info(f'Successfully downloaded data for\n{url}\n')
 
@@ -68,18 +74,6 @@ def _get(url):
     time.sleep(_DELAY)
 
     return r
-
-
-def _failed(response):
-    """Return true if the response to an HTTP request indicates an error."""
-    # MDN indicates the following:
-    #
-    # 400 - 499   client errors
-    # 500 - 599   server errors
-    #
-    # I don't see any indication that there are codes about 599, but I won't
-    # assume that any code >= 400 is an error
-    return response.status_code >= 400 and response.status_code <= 599
 
 
 def get_html_string(url):
@@ -98,18 +92,18 @@ def get_binary_file(url, relative_path):
 
     Any missing parents of the file path are created by the function.
     """
-    r = _get(url)
+    try:
+        r = _get(url)
+    except requests.HTTPError:
+        return
 
-    # From testing, some of the links to binary files are dead, so check whether
-    # the HTTP request succeeded before saving data.
-    if not _failed(r):
-        file_path = Path(_DATA_ROOT) / relative_path
-        _check_parents(file_path)
-        file_path.write_bytes(r.content)
-        logging.info(f'Saved binary data to\n{file_path}\n')
+    file_path = Path(_DATA_ROOT) / relative_path
+    _check_parents(file_path)
+    file_path.write_bytes(r.content)
+    logging.info(f'Saved binary data to\n{file_path}\n')
 
-        if file_path.suffix == '.pdf':
-            parse_pdf(file_path)
+    if file_path.suffix == '.pdf':
+        parse_pdf(file_path)
 
 
 def get_soup(url, filename):
@@ -192,11 +186,63 @@ def parse_pdf(file_path):
 # few tags with an id attribute and then navigate to the tag(s) to be scraped.
 # This approach is used in the functions below.
 
+def get_districts():
+    """Scrape a table of RRC districts/district codes and corresponding
+    counties/county codes."""
+
+    url = 'https://www.rrc.state.tx.us/about-us/organization-activities/rrc-locations/counties-by-dist/'
+    try:
+        soup = get_soup(url, 'districts.html')
+    except requests.HTTPError:
+        return
+
+    table_html = str(soup.table)
+    # The try block attempts to extract a data frame of RRC district codes,
+    # which are needed for the choropleth map in the web app.
+    try:
+        df = pd.read_html(table_html)[0]
+
+        # Set the first row to be the column names.
+        df.rename(columns = df.iloc[0], inplace = True)
+        df.drop(index = 0, inplace = True)
+
+        to_concat = []
+        for start_col in range(0, 12, 4):
+            end_col = start_col + 4
+            sub_df = df.iloc[:, start_col:end_col]
+            # Set the first column to be the index.
+            sub_df.set_index('County', drop = True, inplace = True)
+            to_concat.append(sub_df)
+        df = pd.concat(to_concat, axis = 0)
+
+        # Because of the way the html table was formatted, one of the concatenated
+        # dataframes has a row of missing data.
+        df.dropna(axis = 0, inplace = True)
+
+        # Drop the column giving district offices.
+        df.drop(columns = 'District Office', inplace = True)
+
+    except:
+        message = f'Failed to extract data frame of RRC district codes from\n{url}\n'
+        logging.error(message)
+    else:
+        message = f'Successfully extracted data frame of RRC district codes from\n{url}\n'
+        logging.info(message)
+
+        file_path = Path(_DATA_ROOT) / 'district_codes' / 'RRC_district_codes.csv'
+        _check_parents(file_path)
+        df.to_csv(file_path)
+        logging.info(f'Saved table of RRC district codes to\n{file_path}\n')
+
+
 def get_cleanup_reports():
     """Scrape reports on efforts to plug and clean up abandoned wells."""
 
     url = 'https://www.rrc.state.tx.us/oil-gas/environmental-cleanup-programs/oil-gas-regulation-and-cleanup-fund/'
-    soup = get_soup(url, 'cleanup_reports.html')
+    try:
+        soup = get_soup(url, 'cleanup_reports.html')
+    except requests.HTTPError:
+        return
 
     header = soup.find(id = 'OCP_quarterly').parent
     _get_quarterly_reports(header)
@@ -268,7 +314,10 @@ def get_well_distribution_reports():
         return None
 
     url = 'https://www.rrc.state.tx.us/oil-gas/research-and-statistics/well-information/well-distribution-tables-well-counts-by-type-and-status/'
-    soup = get_soup(url, 'well_distributions.html')
+    try:
+        soup = get_soup(url, 'well_distributions.html')
+    except requests.HTTPError:
+        return
 
     distribution_reports_dir = Path('well_distributions')
 
@@ -309,7 +358,10 @@ def get_abandoned_wells_report():
             return False
 
     url = 'https://www.rrc.state.tx.us/oil-gas/research-and-statistics/well-information/orphan-wells-12-months/'
-    soup = get_soup(url, 'abandoned_wells.html')
+    try:
+        soup = get_soup(url, 'abandoned_wells.html')
+    except requests.HTTPError:
+        return
 
     a_tag = soup.find(has_excel_string)
     filename = a_tag['title']
@@ -337,7 +389,7 @@ def _initialize_logging():
     _check_parents(log_file)
     file_handler = logging.FileHandler(filename = str(log_file), mode = 'w')
     console_handler = logging.StreamHandler(sys.stdout)
-    logging.basicConfig(level=logging.INFO,
+    logging.basicConfig(level = logging.INFO,
                         format = '%(levelname)s: %(message)s',
                         handlers=[file_handler, console_handler])
     print(f'A log is being saved to {log_file} as well as printed to screen.\n')
@@ -351,6 +403,7 @@ def main():
     """Execute the functions defined in this module to collect data on abandoned
     oil and gas wells."""
     _initialize_logging()
+    get_districts()
     get_cleanup_reports()
     get_well_distribution_reports()
     get_abandoned_wells_report()
