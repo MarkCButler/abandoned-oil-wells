@@ -1,4 +1,5 @@
 library(dplyr)
+library(ggplot2)
 library(plotly)
 library(rjson)
 
@@ -28,8 +29,8 @@ counties_json <- fromJSON(file = counties_json_path)
 # choropleth map, set the county total to zero for each county not already in
 # the table.  This is done by performing a full join and then setting NA to in
 # the COUNTY_TOTAL column to zero.
-wells_data <- select(abandoned_wells, DISTRICT_NAME, COUNTY_NAME)
-county_totals <- select(wells_data, COUNTY_NAME) %>%
+map_data <- select(abandoned_wells, DISTRICT_NAME, COUNTY_NAME)
+county_totals <- select(map_data, COUNTY_NAME) %>%
     group_by(COUNTY_NAME) %>%
     summarise(COUNTY_TOTAL = n()) %>%
     ungroup() %>%
@@ -39,42 +40,66 @@ county_totals[bool_index, 'COUNTY_TOTAL'] <- 0
 
 # The data includes information about offshore wells that have been abandoned.
 # Offshore counties were not included in the downloaded geojson data.  As a
-# result, there is some missing data in the FIPS columns of the abandoned_wells
-# dataframe.  For the map these rows are dropped.
+# result, there is some missing data in the FIPS columns of the dataframe.
+# For the map these rows are dropped.
 county_totals <- na.omit(county_totals)
 
 # Finte the number of missing wells per district.  Note that offshore abandoned
 # wells are included in the district totals.  So on the map the sum of the
 # district totals will be larger than the sum of the county totals.
-district_totals <- select(wells_data, DISTRICT_NAME) %>%
+district_totals <- select(map_data, DISTRICT_NAME) %>%
     group_by(DISTRICT_NAME) %>%
     summarise(DISTRICT_TOTAL = n()) %>%
     ungroup()
 
 # Join county and district totals.
-wells_data <- inner_join(county_totals, district_totals, by = 'DISTRICT_NAME')
+map_data <- inner_join(county_totals, district_totals, by = 'DISTRICT_NAME')
+
+
+# Helper function for plotting maps.
+setup_map_plot <- function(data_label) {
+
+    if (data_label == 'Counties') {
+        plot_info <- c(
+            count = 'COUNTY_TOTAL',
+            name = 'COUNTY_NAME',
+            hovertemplate = '%{text} County<br>Total: %{z:,d}<extra></extra>',
+            title = 'Abandonded wells by county'
+        )
+    } else {
+        plot_info <- c(
+            count = 'DISTRICT_TOTAL',
+            name = 'DISTRICT_NAME',
+            hist_title = '',
+            hovertemplate = 'District %{text}<br>Total: %{z:,d}<extra></extra>',
+            title = 'Abandonded wells by district'
+        )
+    }
+
+    return(plot_info)
+}
 
 generate_map <- function(data_label) {
 
-    # Set the column name to use for coloring the map.
-    if (data_label == 'Counties') {
-        z_column <- 'COUNTY_TOTAL'
-        text_column <- 'COUNTY_NAME'
-        hovertemplate <- '%{text} County<br>Total: %{z:,d}<extra></extra>'
-        title <- 'Abandonded wells by county'
-    } else {
-        z_column <- 'DISTRICT_TOTAL'
-        text_column <- 'DISTRICT_NAME'
-        hovertemplate <- 'District %{text}<br>Total: %{z:,d}<extra></extra>'
-        title <- 'Abandonded wells by district'
-    }
+    plot_info <- setup_map_plot(data_label)
 
-    # Rename the column corresponding to data so that this column can be
-    # referred to name in a formula, e.g., ~WELL_COUNT.  This seems to be
-    # required by plotly.
-    data <- rename(wells_data,
-                   WELL_COUNT = !!z_column,
-                   NAME = !!text_column)
+    # It seems that for choropleth maps, plotly requires the column names used
+    # for the plot to be indicated as formulas, e.g., ~WELL_COUNT.  Inside the
+    # current function, however, column names are stored in variables, e.g.,
+    # plot_info['count'].
+    #
+    # The command below renames columns so that they can be referred to in
+    # formulas.  Since the choice of column names to be renamed is stored in
+    # variables, we need to index into the .data pronoun.  For instance, the
+    # argument
+    #
+    # WELL_COUNT = .data[[plot_info['count']]]
+    #
+    # indicates that the string stored in plot_info['count'] gives the column
+    # name that should be changed to 'WELL_COUNT'.
+    data <- rename(map_data,
+                   WELL_COUNT = .data[[plot_info['count']]],
+                   NAME = .data[[plot_info['name']]])
 
     geo <- list(fitbounds = "locations",
                 visible = F)
@@ -96,10 +121,10 @@ generate_map <- function(data_label) {
                   text = ~NAME,
                   reversescale = F,
                   colorscale = 'RdBu',
-                  hovertemplate = hovertemplate) %>%
+                  hovertemplate = plot_info['hovertemplate']) %>%
         colorbar(title = colorbar_title) %>%
         layout(geo = geo,
-               title = title,
+               title = plot_info['title'],
                annotations = hover_annotation) %>%
         config(displayModeBar = F, scrollZoom = F)
 
