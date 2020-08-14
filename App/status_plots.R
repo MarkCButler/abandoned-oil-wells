@@ -64,7 +64,7 @@ setup_map_plot <- function(data_label) {
             count = 'COUNTY_TOTAL',
             name = 'COUNTY_NAME',
             hovertemplate = '%{text} County<br>Total: %{z:,d}<extra></extra>',
-            title = 'Abandonded wells by county'
+            title = 'Number of abandonded wells per county'
         )
     } else {
         plot_info <- c(
@@ -72,7 +72,7 @@ setup_map_plot <- function(data_label) {
             name = 'DISTRICT_NAME',
             hist_title = '',
             hovertemplate = 'District %{text}<br>Total: %{z:,d}<extra></extra>',
-            title = 'Abandonded wells by district'
+            title = 'Number of abandonded wells per district'
         )
     }
 
@@ -128,5 +128,30 @@ generate_map <- function(data_label) {
                annotations = hover_annotation) %>%
         config(displayModeBar = F, scrollZoom = F)
 
+    return(fig)
+}
+
+
+generate_county_histogram <- function() {
+    fig <- ggplot(county_totals, aes(x = COUNTY_TOTAL)) +
+        geom_histogram(fill = 'navyblue', bins = 30) +
+        scale_x_continuous(name = 'Number of abandoned wells') +
+        scale_y_continuous(name = 'Number of counties') +
+        ggtitle('Number of abandonded wells per county') +
+        theme_grey(base_size = 18)
+    
+    return(fig)
+}
+
+generate_district_bar_chart <- function() {
+    fig <- ggplot(district_totals,
+                  aes(x = DISTRICT_NAME, y = DISTRICT_TOTAL)) +
+        geom_bar(stat = 'identity',
+                 fill = 'navyblue') +
+        scale_x_discrete(name = 'District') +
+        scale_y_continuous(name = 'Number of abandoned wells') +
+        ggtitle('Number of abandonded wells per district') +
+        theme_grey(base_size = 18)
+    
     return(fig)
 }
