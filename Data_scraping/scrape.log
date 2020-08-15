@@ -1,0 +1,1881 @@
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/about-us/organization-activities/rrc-locations/counties-by-dist/
+
+INFO: Successfully extracted data frame of RRC district codes from
+https://www.rrc.state.tx.us/about-us/organization-activities/rrc-locations/counties-by-dist/
+
+INFO: Saved table of RRC district codes to
+data/district_codes/RRC_district_codes.csv
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/oil-gas/environmental-cleanup-programs/oil-gas-regulation-and-cleanup-fund/
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/57809/oilfield-cleanup-program-qtrly-rpt-fy-20-1st-qtr.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2020/1st_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2020/1st_Quarter.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/quarterly/FY_2020/1st_Quarter.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/49873/oilfield-cleanup-program-qtrly-rpt-fy-19-1st-qtr.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2019/1st_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2019/1st_Quarter.pdf
+
+INFO: Saved parsed text to
+data/cleanup_reports/quarterly/FY_2019/1st_Quarter_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/43583/oil-field-cleanup-program-1st-qrt-fy18.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2018/1st_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2018/1st_Quarter.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/quarterly/FY_2018/1st_Quarter.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/37929/oil-field-cleanup-program-1stqtr-fy-17.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2017/1st_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2017/1st_Quarter.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/quarterly/FY_2017/1st_Quarter.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/31894/oilfield-cleanup-program-1st-qtr-fy16.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2016/1st_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2016/1st_Quarter.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/quarterly/FY_2016/1st_Quarter.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/26573/fy15-1st-qtr.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2015/1st_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2015/1st_Quarter.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/quarterly/FY_2015/1st_Quarter.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/57810/oilfield-cleanup-program-qtrly-rpt-fy-20-2nd-qtr.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2020/2nd_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2020/2nd_Quarter.pdf
+
+INFO: Saved parsed text to
+data/cleanup_reports/quarterly/FY_2020/2nd_Quarter_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/51489/oilfield-cleanup-program-qtrly-rpt-fy-19-2nd-qtr.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2019/2nd_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2019/2nd_Quarter.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/quarterly/FY_2019/2nd_Quarter.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/44471/oil-field-cleanup-program-2nd-qtr-fy-18.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2018/2nd_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2018/2nd_Quarter.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/quarterly/FY_2018/2nd_Quarter.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/39292/oil-field-cleanup-program-2ndqtr-fy-17.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2017/2nd_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2017/2nd_Quarter.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/quarterly/FY_2017/2nd_Quarter.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/32910/oilfield-cleanup-program-2nd-qtr-fy16.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2016/2nd_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2016/2nd_Quarter.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/quarterly/FY_2016/2nd_Quarter.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/28514/fy15_2nd_qtr.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2015/2nd_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2015/2nd_Quarter.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/quarterly/FY_2015/2nd_Quarter.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/59165/oilfield-cleanup-program-qtrly-rpt-fy-20-3rd-qtr.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2020/3rd_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2020/3rd_Quarter.pdf
+
+INFO: Saved parsed text to
+data/cleanup_reports/quarterly/FY_2020/3rd_Quarter_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/53622/oilfield-cleanup-program-qtrly-rpt-fy-19-3rd-qtr.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2019/3rd_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2019/3rd_Quarter.pdf
+
+INFO: Saved parsed text to
+data/cleanup_reports/quarterly/FY_2019/3rd_Quarter_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/46096/oil-field-cleanup-program-3rd-qtr-fy18.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2018/3rd_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2018/3rd_Quarter.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/quarterly/FY_2018/3rd_Quarter.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/42622/oil-field-cleanup-program-3rd-qtr-fy-17.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2017/3rd_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2017/3rd_Quarter.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/quarterly/FY_2017/3rd_Quarter.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/34200/oilfield-cleanup-program-3rd-qtr-fy16.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2016/3rd_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2016/3rd_Quarter.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/quarterly/FY_2016/3rd_Quarter.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/31234/fy15-3rd-4th-qtr.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2015/3rd_&_4th_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2015/3rd_&_4th_Quarter.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/quarterly/FY_2015/3rd_&_4th_Quarter.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/55609/oilfield-cleanup-program-qtrly-rpt-fy-19-4th-qtr.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2019/4th_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2019/4th_Quarter.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/quarterly/FY_2019/4th_Quarter.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/48085/oil-field-cleanup-program-4th-qtr-fy-18.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2018/4th_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2018/4th_Quarter.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/quarterly/FY_2018/4th_Quarter.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/42623/oil-field-cleanup-program-4th-qtr-fy-17.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2017/4th_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2017/4th_Quarter.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/quarterly/FY_2017/4th_Quarter.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/37230/oil-field-cleanup-program-fy-16-4th-qtr-report.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/quarterly/FY_2016/4th_Quarter.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/quarterly/FY_2016/4th_Quarter.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/quarterly/FY_2016/4th_Quarter.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/55505/ofcu-2019.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/annual/Fiscal_Year_2019.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/annual/Fiscal_Year_2019.pdf
+
+INFO: Saved parsed text to
+data/cleanup_reports/annual/Fiscal_Year_2019_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/49874/fy-2018-oil-field-cleanup-program-annual-report.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/annual/Fiscal_Year_2018.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/annual/Fiscal_Year_2018.pdf
+
+INFO: Saved parsed text to
+data/cleanup_reports/annual/Fiscal_Year_2018_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/43931/ofcu-program-annual-report-2017.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/annual/Fiscal_Year_2017.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/annual/Fiscal_Year_2017.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/annual/Fiscal_Year_2017.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/37219/ogrc-annual-report-2016.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/annual/Fiscal_Year_2016.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/annual/Fiscal_Year_2016.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/annual/Fiscal_Year_2016.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/31235/ogrc2015.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/annual/Fiscal_Year_2015.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/annual/Fiscal_Year_2015.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/annual/Fiscal_Year_2015.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/24379/ogrc2014.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/annual/Fiscal_Year_2014.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/annual/Fiscal_Year_2014.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/annual/Fiscal_Year_2014.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/18795/ofcu2013.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/annual/Fiscal_Year_2013.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/annual/Fiscal_Year_2013.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/annual/Fiscal_Year_2013.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/18796/ofcu2012.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/annual/Fiscal_Year_2012.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/annual/Fiscal_Year_2012.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/annual/Fiscal_Year_2012.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2131/ofcu2011.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/annual/Fiscal_Year_2011.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/annual/Fiscal_Year_2011.pdf
+
+INFO: No text content found in pdf file
+data/cleanup_reports/annual/Fiscal_Year_2011.pdf
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/1503/ofcu2010.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/annual/Fiscal_Year_2010.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/annual/Fiscal_Year_2010.pdf
+
+INFO: Saved parsed text to
+data/cleanup_reports/annual/Fiscal_Year_2010_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/1502/ofcu2009.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/annual/Fiscal_Year_2009.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/annual/Fiscal_Year_2009.pdf
+
+INFO: Saved parsed text to
+data/cleanup_reports/annual/Fiscal_Year_2009_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/1499/ofcureports2008.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/annual/Fiscal_Year_2008.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/annual/Fiscal_Year_2008.pdf
+
+INFO: Saved parsed text to
+data/cleanup_reports/annual/Fiscal_Year_2008_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/1561/ofcureports2007.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/annual/Fiscal_Year_2007.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/annual/Fiscal_Year_2007.pdf
+
+INFO: Saved parsed text to
+data/cleanup_reports/annual/Fiscal_Year_2007_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/1500/ofcu2006.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/annual/Fiscal_Year_2006.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/annual/Fiscal_Year_2006.pdf
+
+INFO: Saved parsed text to
+data/cleanup_reports/annual/Fiscal_Year_2006_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/1524/ofcu2005.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/annual/Fiscal_Year_2005.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/annual/Fiscal_Year_2005.pdf
+
+INFO: Saved parsed text to
+data/cleanup_reports/annual/Fiscal_Year_2005_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/1501/ofcu2004.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/annual/Fiscal_Year_2004.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/annual/Fiscal_Year_2004.pdf
+
+INFO: Saved parsed text to
+data/cleanup_reports/annual/Fiscal_Year_2004_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/1562/ofcu2003.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/annual/Fiscal_Year_2003.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/annual/Fiscal_Year_2003.pdf
+
+INFO: Saved parsed text to
+data/cleanup_reports/annual/Fiscal_Year_2003_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/1498/oilfieldcleanupannual.pdf
+
+INFO: Saved binary data to
+data/cleanup_reports/annual/Fiscal_Year_2002.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/cleanup_reports/annual/Fiscal_Year_2002.pdf
+
+INFO: Saved parsed text to
+data/cleanup_reports/annual/Fiscal_Year_2002_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/oil-gas/research-and-statistics/well-information/well-distribution-tables-well-counts-by-type-and-status/
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/56403/wells-monitored-jan2020.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2020/January_31_2020.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2020/January_31_2020.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2020/January_31_2020_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/56843/wells-monitored-feb2020.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2020/February_29_2020.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2020/February_29_2020.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2020/February_29_2020_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/57343/wells-monitored-mar2020.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2020/March_31_2020.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2020/March_31_2020.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2020/March_31_2020_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/57805/wells-monitored-apr2020.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2020/April_30_2020.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2020/April_30_2020.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2020/April_30_2020_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/58274/wells-monitored-may2020.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2020/May_31_2020.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2020/May_31_2020.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2020/May_31_2020_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/58799/wells-monitored-june2020.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2020/June_30_2020.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2020/June_30_2020.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2020/June_30_2020_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/59240/wells-monitored-july-2020.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2020/July_31_2020.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2020/July_31_2020.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2020/July_31_2020_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/55904/wells-monitored-dec2019.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2019/December_31_2019.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2019/December_31_2019.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2019/December_31_2019_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/55410/wells-monitored-nov19.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2019/November_27_2019.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2019/November_27_2019.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2019/November_27_2019_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/55006/wells-monitored-oct-19.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2019/October_31_2019.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2019/October_31_2019.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2019/October_31_2019_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/55010/wells-monitored-sept-19.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2019/September_31_2019.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2019/September_31_2019.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2019/September_31_2019_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/54161/wells-monitored-0819.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2019/August_31._2019.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2019/August_31._2019.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2019/August_31._2019_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/53621/wells-monitored-0719.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2019/July_31_2019.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2019/July_31_2019.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2019/July_31_2019_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/52968/wells-monitored-0619.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2019/June_30_2019.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2019/June_30_2019.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2019/June_30_2019_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/52528/wells-monitored-0519.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2019/May_31_2019.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2019/May_31_2019.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2019/May_31_2019_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/51745/wells-monitored-0419.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2019/April_30_2019.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2019/April_30_2019.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2019/April_30_2019_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/51323/wells-monitored-0319.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2019/March_31_2019.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2019/March_31_2019.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2019/March_31_2019_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/50887/wells-monitored-0219.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2019/February_28_2019.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2019/February_28_2019.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2019/February_28_2019_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/50342/wells-monitored-0119.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2019/January_31_2019.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2019/January_31_2019.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2019/January_31_2019_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/49787/wells-monitored-1218.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2018/December_29_2018.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2018/December_29_2018.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2018/December_29_2018_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/49006/wells-monitored-1118.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2018/November_30_2018.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2018/November_30_2018.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2018/November_30_2018_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/48499/wells-monitored-1018.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2018/October_31_2018.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2018/October_31_2018.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2018/October_31_2018_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/47990/wells-monitored-0918.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2018/September_28_2018.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2018/September_28_2018.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2018/September_28_2018_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/47629/wells-monitored-0818.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2018/August_31_2018.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2018/August_31_2018.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2018/August_31_2018_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/46818/wells-monitored-0718.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2018/July_31_2018.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2018/July_31_2018.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2018/July_31_2018_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/46408/wells-monitored-0618.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2018/June_30_2018.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2018/June_30_2018.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2018/June_30_2018_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/45997/wells-monitored-0518.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2018/May_31_2018.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2018/May_31_2018.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2018/May_31_2018_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/45337/wells-monitored-0418.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2018/April_30_2018.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2018/April_30_2018.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2018/April_30_2018_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/44843/wells-monitored-0318.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2018/March_31_2018.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2018/March_31_2018.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2018/March_31_2018_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/44327/wells-monitored-0218.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2018/February_28_2018.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2018/February_28_2018.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2018/February_28_2018_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/43880/wells-monitored-0118.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2018/January_31_2018.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2018/January_31_2018.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2018/January_31_2018_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/43381/wells-monitored-1217.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2017/December_27_2017.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2017/December_27_2017.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2017/December_27_2017_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/43164/wells-monitored1117.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2017/November_30_2017.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2017/November_30_2017.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2017/November_30_2017_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/42621/wells-monitored1017.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2017/October_31_2017.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2017/October_31_2017.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2017/October_31_2017_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/42244/wells-monitored0917.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2017/September_29_2017.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2017/September_29_2017.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2017/September_29_2017_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/41780/wells-monitored0817.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2017/August_31_2017.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2017/August_31_2017.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2017/August_31_2017_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/41389/wells-monitored0717.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2017/July_28_2017.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2017/July_28_2017.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2017/July_28_2017_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/40733/wells-monitored0617.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2017/June_30_2017.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2017/June_30_2017.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2017/June_30_2017_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/40395/wells-monitored0517.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2017/May_31_2017.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2017/May_31_2017.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2017/May_31_2017_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/39773/wells-monitored0417.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2017/April_28_2017.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2017/April_28_2017.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2017/April_28_2017_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/39304/wells-monitored0317.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2017/March_31_2017.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2017/March_31_2017.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2017/March_31_2017_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/38824/wells-monitored0217.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2017/February_28_2017.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2017/February_28_2017.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2017/February_28_2017_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/38250/wells-monitored0117.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2017/January_31_2017.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2017/January_31_2017.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2017/January_31_2017_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/37682/wells-monitored1216.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2016/December_28_2016.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2016/December_28_2016.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2016/December_28_2016_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/37306/wells-monitored1116.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2016/November_30_2016.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2016/November_30_2016.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2016/November_30_2016_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/36447/wells-monitored1016.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2016/October_29_2016.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2016/October_29_2016.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2016/October_29_2016_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/35836/wells-monitored0916.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2016/September_30_2016.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2016/September_30_2016.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2016/September_30_2016_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/35835/welldistribution0816.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2016/August_31_2016.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2016/August_31_2016.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2016/August_31_2016_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/34842/welldistribution0716.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2016/July_29_2016.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2016/July_29_2016.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2016/July_29_2016_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/34454/welldistribution0616.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2016/June_30_2016.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2016/June_30_2016.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2016/June_30_2016_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/34043/welldistribution0516.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2016/May_31_2016.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2016/May_31_2016.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2016/May_31_2016_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/33628/welldistribution0416.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2016/April_29_2016.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2016/April_29_2016.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2016/April_29_2016_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/33240/welldistribution0316.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2016/March_31_2016.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2016/March_31_2016.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2016/March_31_2016_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/32745/welldistribution0216.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2016/February_27_2016.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2016/February_27_2016.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2016/February_27_2016_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/32357/welldistribution0116.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2016/January_29_2016.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2016/January_29_2016.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2016/January_29_2016_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/31890/welldistribution1215.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2015/December_30_2015.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2015/December_30_2015.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2015/December_30_2015_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/31460/welldistribution1115.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2015/November_26_2015.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2015/November_26_2015.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2015/November_26_2015_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/31232/welldistribution1015.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2015/October_30_2015.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2015/October_30_2015.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2015/October_30_2015_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/30714/welldistribution0915.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2015/September_30_2015.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2015/September_30_2015.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2015/September_30_2015_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/46432/welldistribution0815.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2015/August_29_2015.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2015/August_29_2015.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2015/August_29_2015_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/29755/welldistribution0715.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2015/July_31_2015.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2015/July_31_2015.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2015/July_31_2015_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/29514/welldistribution0615.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2015/June_30_2015.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2015/June_30_2015.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2015/June_30_2015_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/28992/welldistribution0515.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2015/May_29_2015.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2015/May_29_2015.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2015/May_29_2015_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/28542/welldistribution0415.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2015/April_30_2015.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2015/April_30_2015.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2015/April_30_2015_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/28170/welldistribution0315.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2015/March_31_2015.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2015/March_31_2015.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2015/March_31_2015_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/27375/welldistribution0215.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2015/February_27_2015.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2015/February_27_2015.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2015/February_27_2015_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/26977/welldistribution0115.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2015/January_31_2015.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2015/January_31_2015.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2015/January_31_2015_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/26405/welldistribution1214.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2014/December_31_2014.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2014/December_31_2014.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2014/December_31_2014_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/25642/welldistribution1114.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2014/November_26_2014.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2014/November_26_2014.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2014/November_26_2014_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/24880/welldistribution1014.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2014/October_31_2014.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2014/October_31_2014.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2014/October_31_2014_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/24318/welldistribution0914.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2014/September_302014.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2014/September_302014.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2014/September_302014_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/23505/welldistribution0814.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2014/August_29_2014.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2014/August_29_2014.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2014/August_29_2014_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/22557/welldistribution0714.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2014/July_31_2014.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2014/July_31_2014.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2014/July_31_2014_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/21736/welldistribution0614.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2014/June_28_2014.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2014/June_28_2014.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2014/June_28_2014_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/20622/welldistribution0514.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2014/May_30_2014.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2014/May_30_2014.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2014/May_30_2014_parsed.txt
+
+ERROR: Failed to download
+https://www.rrc.state.tx.us/media/19392/welldistribution0414.pdf
+
+HTTP response:
+
+<?xml version="1.0" encoding="utf-8"?><Error><Code>BlobNotFound</Code><Message>The specified blob does not exist.
+RequestId:63a4bcbd-401e-006c-6a1f-739101000000
+Time:2020-08-15T16:13:25.4324769Z</Message></Error>
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/8872/welldistribution0314.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2014/March_29_2014.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2014/March_29_2014.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2014/March_29_2014_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2150/welldistribution022814.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2014/February_28_2014.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2014/February_28_2014.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2014/February_28_2014_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2144/welldistribution01314.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2014/January_31_2014.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2014/January_31_2014.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2014/January_31_2014_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2202/wellsdistribution123113.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2013/December_31_2013.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2013/December_31_2013.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2013/December_31_2013_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2182/welldistribution112713.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2013/November_27_2013.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2013/November_27_2013.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2013/November_27_2013_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2198/wellsdistribution103013.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2013/October_30_2013.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2013/October_30_2013.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2013/October_30_2013_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2175/welldistribution092813.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2013/September_28_2013.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2013/September_28_2013.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2013/September_28_2013_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/22429/welldistribution083113.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2013/August_31_2013.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2013/August_31_2013.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2013/August_31_2013_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2169/welldistribution073113.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2013/July_31_2013.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2013/July_31_2013.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2013/July_31_2013_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2163/welldistribution062913.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2013/June_29_2013.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2013/June_29_2013.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2013/June_29_2013_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/25726/welldistribution053113.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2013/May_31_2013.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2013/May_31_2013.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2013/May_31_2013_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/25725/welldistribution042713.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2013/April_27_2013.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2013/April_27_2013.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2013/April_27_2013_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2155/welldistribution032913.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2013/March_29_2013.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2013/March_29_2013.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2013/March_29_2013_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2188/wellsdistribution022813.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2013/February_28_2013.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2013/February_28_2013.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2013/February_28_2013_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2147/welldistribution013112.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2013/January_31_2013.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2013/January_31_2013.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2013/January_31_2013_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2185/welldistribution122212.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2012/December_22_2012.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2012/December_22_2012.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2012/December_22_2012_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2200/wellsdistribution113012.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2012/November_30_2012.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2012/November_30_2012.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2012/November_30_2012_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2180/welldistribution111212.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2012/October_31_2012.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2012/October_31_2012.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2012/October_31_2012_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2196/wellsdistribution092812.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2012/September_28_2012.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2012/September_28_2012.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2012/September_28_2012_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2172/welldistribution083112.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2012/August_31_2012.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2012/August_31_2012.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2012/August_31_2012_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2194/wellsdistribution073112.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2012/July_31_2012.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2012/July_31_2012.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2012/July_31_2012_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2193/wellsdistribution062912.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2012/June_29_2012.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2012/June_29_2012.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2012/June_29_2012_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2192/wellsdistribution053112.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2012/May_31_2012.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2012/May_31_2012.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2012/May_31_2012_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2190/wellsdistribution042812.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2012/April_28_2012.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2012/April_28_2012.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2012/April_28_2012_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2191/wellsdistribution033012.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2012/March_30_2012.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2012/March_30_2012.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2012/March_30_2012_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2189/wellsdistribution022912.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2012/February_29_2012.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2012/February_29_2012.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2012/February_29_2012_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2187/wellsdistribution013112.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2012/January_31_2012.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2012/January_31_2012.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2012/January_31_2012_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2201/wellsdistribution122811.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2011/December_28_2011.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2011/December_28_2011.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2011/December_28_2011_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2199/wellsdistribution113011.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2011/November_30_2011.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2011/November_30_2011.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2011/November_30_2011_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2178/welldistribution102911.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2011/October_29_2011.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2011/October_29_2011.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2011/October_29_2011_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2197/wellsdistribution093011.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2011/September_30_2011.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2011/September_30_2011.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2011/September_30_2011_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2173/welldistribution083011.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2011/August_30_2011.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2011/August_30_2011.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2011/August_30_2011_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2195/wellsdistribution072911.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2011/July_29_2011.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2011/July_29_2011.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2011/July_29_2011_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2166/welldistribution063011.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2011/June_30_2011.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2011/June_30_2011.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2011/June_30_2011_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2161/welldistribution052811.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2011/May_28_2011.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2011/May_28_2011.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2011/May_28_2011_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2159/welldistribution042911.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2011/April_29_2011.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2011/April_29_2011.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2011/April_29_2011_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2156/welldistribution033111.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2011/March_31_2011.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2011/March_31_2011.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2011/March_31_2011_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2149/welldistribution022611.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2011/February_26_2011.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2011/February_26_2011.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2011/February_26_2011_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/2146/welldistribution012911.pdf
+
+INFO: Saved binary data to
+data/well_distributions/2011/January_29_2011.pdf
+
+INFO: Attempting to extract text content from pdf file
+data/well_distributions/2011/January_29_2011.pdf
+
+INFO: Saved parsed text to
+data/well_distributions/2011/January_29_2011_parsed.txt
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/oil-gas/research-and-statistics/well-information/orphan-wells-12-months/
+
+INFO: Successfully downloaded data for
+https://www.rrc.state.tx.us/media/59202/orphanwells0720.zip
+
+INFO: Saved binary data to
+data/abandoned_wells/OrphanWells0720.zip
+
