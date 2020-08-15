@@ -10,6 +10,10 @@ source('filenames.R')
 abandoned_wells <- read.csv(abandoned_wells_csv_path, check.names = F,
                             stringsAsFactors = F)
 
+# Rename column WB_Months_Inactive for consistency with other column names.
+abandoned_wells <- rename(abandoned_wells, MONTHS_INACTIVE = WB_Months_Inactive) %>%
+    select(DISTRICT_NAME, COUNTY_NAME, MONTHS_INACTIVE)
+
 # Format county names for display in the interactive plotly figure.
 convert_county_names <- function(county_names) {
     county_names <- str_to_title(county_names)
