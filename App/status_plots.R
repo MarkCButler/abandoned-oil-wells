@@ -13,7 +13,7 @@ source('filenames.R')
 # function calls that generate distinct plots or maps.
 
 # Table giving the current information about abandoned wells.
-abandoned_wells <- read.csv(abandoned_wells_csv_path, check.names = F,
+abandoned_wells <- read.csv(abandoned_wells_path, check.names = F,
                             stringsAsFactors = F)
 
 # Table giving the district name and FIPS codes for each county.

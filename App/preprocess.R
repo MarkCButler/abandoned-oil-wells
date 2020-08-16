@@ -7,7 +7,7 @@ source('filenames.R')
 # The code in this file was run only once.  It does some preprocessing of the
 # data scraped from the web.
 
-abandoned_wells <- read.csv(abandoned_wells_csv_path, check.names = F,
+abandoned_wells <- read.csv(abandoned_wells_path, check.names = F,
                             stringsAsFactors = F)
 
 # Rename column WB_Months_Inactive for consistency with other column names.
@@ -68,7 +68,7 @@ FIPS_codes <- sapply(counties_json$features, get_FIPS_code)
 
 # Read the table that tells which counties are included in each RRC district.
 # Rename columns for consistency with other scraped data.
-districts <- read.csv(districts_csv_path, check.names = F, stringsAsFactors = F) %>%
+districts <- read.csv(districts_path, check.names = F, stringsAsFactors = F) %>%
     select(-CC) %>%
     rename(COUNTY_NAME = County,
            DISTRICT_NAME = DC)
@@ -85,5 +85,5 @@ counties_df <- mutate(districts,
 
 # Save data.
 writeLines(toJSON(counties_json), counties_json_path)
-write.csv(abandoned_wells, abandoned_wells_csv_path, row.names = F)
+write.csv(abandoned_wells, abandoned_wells_path, row.names = F)
 write.csv(counties_df, counties_csv_path, row.names = F)
