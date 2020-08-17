@@ -7,6 +7,11 @@ source('filenames.R')
 # The code in this file was run only once.  It does some preprocessing of the
 # data scraped from the web.
 
+
+#######################################
+# Preprocess data for status_plots.R
+#######################################
+
 abandoned_wells <- read.csv(abandoned_wells_path, check.names = F,
                             stringsAsFactors = F)
 
@@ -83,7 +88,32 @@ districts[bool_index, 'COUNTY_NAME'] <- 'Shackelford'
 counties_df <- mutate(districts,
                       FIPS = FIPS_codes[COUNTY_NAME])
 
+
+#######################################
+# Preprocess data for status_plots.R
+#######################################
+
+# This is a csv file giving the monthly distribution of unplugged wells since
+# Jan 2014.
+unplugged_wells <- read.csv(unplugged_wells_path, stringsAsFactors = F)
+
+# The dates were scraped from a web page, and a couple of errors on that page
+# need to be corrected.  Also, the date formate needs to be standardized.
+bool_index <- (unplugged_wells[['Date']] == 'September_31_2019')
+unplugged_wells[bool_index, 'Date'] <- 'September_30_2019'
+bool_index <- (unplugged_wells[['Date']] == 'September_302014')
+unplugged_wells[bool_index, 'Date'] <- 'September_30_2014'
+unplugged_wells[['Date']] <- as.Date(unplugged_wells[['Date']], format = '%B_%d_%Y')
+
+# The csv file giving the plugging history came from a scraped pdf file.
+# The notation for fiscal years is inconsistent.  Replace this notation by
+# integers.
+plugging_history <- read.csv(plugging_history_path, stringsAsFactors = F)
+plugging_history[['Fiscal_year']] <- str_extract(plugging_history[['Fiscal_year']], '\\d+')
+
 # Save data.
 writeLines(toJSON(counties_json), counties_json_path)
 write.csv(abandoned_wells, abandoned_wells_path, row.names = F)
 write.csv(counties_df, counties_csv_path, row.names = F)
+write.csv(unplugged_wells, unplugged_wells_path, row.names = F)
+write.csv(plugging_history, plugging_history_path, row.names = F)
