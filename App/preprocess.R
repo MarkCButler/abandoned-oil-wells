@@ -72,6 +72,9 @@ get_FIPS_code <- function(json_data) {
 FIPS_codes <- sapply(counties_json$features, get_FIPS_code)
 
 # Read the table that tells which counties are included in each RRC district.
+# (RRC is the acronym for the Texas Railroad Commission, which is
+# responsible for regulating oil and gas wells in Texas.)
+#
 # Rename columns for consistency with other scraped data.
 districts <- read.csv(districts_path, check.names = F, stringsAsFactors = F) %>%
     select(-CC) %>%
@@ -93,7 +96,7 @@ counties_df <- mutate(districts,
 # Preprocess data for status_plots.R
 #######################################
 
-# This is a csv file giving the monthly distribution of unplugged wells since
+# Load the csv file giving the monthly distribution of unplugged wells since
 # Jan 2014.
 unplugged_wells <- read.csv(unplugged_wells_path, stringsAsFactors = F)
 
@@ -111,9 +114,17 @@ unplugged_wells[['Date']] <- as.Date(unplugged_wells[['Date']], format = '%B_%d_
 plugging_history <- read.csv(plugging_history_path, stringsAsFactors = F)
 plugging_history[['Fiscal_year']] <- str_extract(plugging_history[['Fiscal_year']], '\\d+')
 
+# Load the csv file giving HAL stock prices since Jan 2014.  Discard the
+# unneeded columns and unneeded digits in the stock price.
+stock_prices <- read.csv(stock_prices_path, colClasses = c(Date = 'Date')) %>%
+    select(Date, Adj.Close) %>%
+    mutate(Price = round(Adj.Close, digits = 2)) %>%
+    select(-Adj.Close)
+
 # Save data.
 writeLines(toJSON(counties_json), counties_json_path)
 write.csv(abandoned_wells, abandoned_wells_path, row.names = F)
 write.csv(counties_df, counties_csv_path, row.names = F)
 write.csv(unplugged_wells, unplugged_wells_path, row.names = F)
 write.csv(plugging_history, plugging_history_path, row.names = F)
+write.csv(stock_prices, stock_prices_path, row.names = F)
