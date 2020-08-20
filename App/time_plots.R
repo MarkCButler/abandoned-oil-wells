@@ -15,6 +15,8 @@ unplugged_wells <- read.csv(unplugged_wells_path, colClasses = c(Date = 'Date'))
            Recently_inactive = Inactive_under_1_yr,
            Recently_abandoned = Inactive_under_1_yr_delinq_P5)
 
+stock_prices <- read.csv(stock_prices_path, colClasses = c(Date = 'Date'))
+
 plot_plugging_history <- function() {
     # To simplify the plotting process with ggplot, gather the values of two
     # variables into a single column before plotting.
@@ -48,6 +50,19 @@ plot_distribution_history <- function(column_name, title) {
                            limits = c(0, NA),
                            labels = label_comma()) +
         ggtitle(title) +
+        theme_grey(base_size = 18)
+
+    return(fig)
+}
+
+plot_price_history <- function() {
+    fig <- ggplot(stock_prices,
+                  aes(x = Date, y = Price)) +
+        geom_point(color = 'navyblue') +
+        geom_line(color = 'navyblue') +
+        scale_y_continuous(labels = dollar_format(),
+                           limits = c(0, NA)) +
+        ggtitle('Halliburton stock price') +
         theme_grey(base_size = 18)
 
     return(fig)
