@@ -22,6 +22,7 @@ import requests
 
 # Import and initialize tika for pdf parsing
 import tika
+
 tika.initVM()
 from tika import parser
 
@@ -57,7 +58,7 @@ def _get(url):
     """Perform repetitive tasks for executing HTTP GET."""
 
     headers = {'user-agent': _USER_AGENT}
-    r = requests.get(url, headers = headers)
+    r = requests.get(url, headers=headers)
     try:
         r.raise_for_status()
     except requests.HTTPError:
@@ -107,7 +108,7 @@ def get_binary_file(url, relative_path):
 
 
 def get_soup(url, filename):
-    """Get the BeautifulSoup treep for a url and save prettified version of the html. """
+    """Get the BeautifulSoup tree for a url and save prettified version of the html. """
     html_string = get_html_string(url)
     soup = BeautifulSoup(html_string, 'html.parser')
     html_string = soup.prettify()
@@ -148,8 +149,8 @@ def parse_pdf(file_path):
         # Save the parsed text.  Since parsed['metadata'] is a dictionary, we need
         # to use pprint to get a readable text file.
         with open(parent / metadata_filename, 'w') as metadata_file:
-            pprint.pprint(parsed['metadata'], stream = metadata_file,
-                          indent = 4, width = 130)
+            pprint.pprint(parsed['metadata'], stream=metadata_file,
+                          indent=4, width=130)
 
         parsed_content_path = parent / content_filename
         parsed_content_path.write_text(parsed['content'])
@@ -203,24 +204,24 @@ def get_districts():
         df = pd.read_html(table_html)[0]
 
         # Set the first row to be the column names.
-        df.rename(columns = df.iloc[0], inplace = True)
-        df.drop(index = 0, inplace = True)
+        df.rename(columns=df.iloc[0], inplace=True)
+        df.drop(index=0, inplace=True)
 
         to_concat = []
         for start_col in range(0, 12, 4):
             end_col = start_col + 4
             sub_df = df.iloc[:, start_col:end_col]
             # Set the first column to be the index.
-            sub_df.set_index('County', drop = True, inplace = True)
+            sub_df.set_index('County', drop=True, inplace=True)
             to_concat.append(sub_df)
-        df = pd.concat(to_concat, axis = 0)
+        df = pd.concat(to_concat, axis=0)
 
         # Because of the way the html table was formatted, one of the concatenated
         # dataframes has a row of missing data.
-        df.dropna(axis = 0, inplace = True)
+        df.dropna(axis=0, inplace=True)
 
         # Drop the column giving district offices.
-        df.drop(columns = 'District Office', inplace = True)
+        df.drop(columns='District Office', inplace=True)
 
     except:
         message = f'Failed to extract data frame of RRC district codes from\n{url}\n'
@@ -244,10 +245,10 @@ def get_cleanup_reports():
     except requests.HTTPError:
         return
 
-    header = soup.find(id = 'OCP_quarterly').parent
+    header = soup.find(id='OCP_quarterly').parent
     _get_quarterly_reports(header)
 
-    header = soup.find(id = 'OCP_annual').parent
+    header = soup.find(id='OCP_annual').parent
     _get_annual_reports(header)
 
 
@@ -265,7 +266,7 @@ def _get_quarterly_reports(header):
     year_tags = rows[0].find_all(
         # Tests whether a tag is type 'td' and also has a string
         lambda tag: tag.string if tag.name == 'td' else False
-        )
+    )
     years = [year_tag.string.strip().replace(' ', '_')
              for year_tag in year_tags]
     quarterly_reports_dir = Path('cleanup_reports') / 'quarterly'
@@ -291,7 +292,7 @@ def _get_annual_reports(header):
     annual_reports_dir = Path('cleanup_reports') / 'annual'
     a_tags = table.find_all('a')
     for a_tag in a_tags:
-        filename = a_tag.string.strip().replace(' ', '_') +  '.pdf'
+        filename = a_tag.string.strip().replace(' ', '_') + '.pdf'
         relative_path = annual_reports_dir / filename
         url = _BASE_URL + a_tag['href']
         get_binary_file(url, relative_path)
@@ -377,7 +378,7 @@ def get_abandoned_wells_report():
 def _check_parents(file_path):
     """Check whether the parents of a file path exist and make them if not."""
     parent = file_path.parents[0]
-    parent.mkdir(parents = True, exist_ok = True)
+    parent.mkdir(parents=True, exist_ok=True)
 
 
 def _initialize_logging():
@@ -387,10 +388,10 @@ def _initialize_logging():
     """
     log_file = Path(_DATA_ROOT) / 'scrape.log'
     _check_parents(log_file)
-    file_handler = logging.FileHandler(filename = str(log_file), mode = 'w')
+    file_handler = logging.FileHandler(filename=str(log_file), mode='w')
     console_handler = logging.StreamHandler(sys.stdout)
-    logging.basicConfig(level = logging.INFO,
-                        format = '%(levelname)s: %(message)s',
+    logging.basicConfig(level=logging.INFO,
+                        format='%(levelname)s: %(message)s',
                         handlers=[file_handler, console_handler])
     print(f'A log is being saved to {log_file} as well as printed to screen.\n')
 
@@ -407,6 +408,7 @@ def main():
     get_cleanup_reports()
     get_well_distribution_reports()
     get_abandoned_wells_report()
+
 
 if __name__ == '__main__':
     main()
