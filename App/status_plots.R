@@ -96,7 +96,7 @@ setup_map_plot <- function(data_label, months_inactive) {
             count = 'COUNTY_TOTAL',
             name = 'COUNTY_NAME',
             hovertemplate = '%{text} County<br>Total: %{z:,d}<extra></extra>',
-            title = paste0('Number of abandonded wells per county', title_detail)
+            title = paste0('Number of abandoned wells per county', title_detail)
         )
     } else {
         plot_info <- c(
@@ -104,14 +104,20 @@ setup_map_plot <- function(data_label, months_inactive) {
             name = 'DISTRICT_NAME',
             hist_title = '',
             hovertemplate = 'District %{text}<br>Total: %{z:,d}<extra></extra>',
-            title = paste0('Number of abandonded wells per district', title_detail)
+            title = paste0('Number of abandoned wells per district', title_detail)
         )
     }
 
     return(plot_info)
 }
 
-generate_map <- function(data_label, data, months_inactive = NULL) {
+# The server calls the function generate_map with two different dataframe:
+# region_totals and region_totals_old_wells.  These data frames are defined in
+# the current file.  The argment data_label, which should be 'Counties' or
+# 'Districts', determines whether the choropleth map is colored by county or
+# RRC district.  (RRC is the acronym for the Texas Railroad Commission, which
+# is responsible for regulating oil and gas wells in Texas.)
+generate_map <- function(data, data_label, months_inactive = NULL) {
 
     plot_info <- setup_map_plot(data_label, months_inactive)
 
@@ -137,7 +143,7 @@ generate_map <- function(data_label, data, months_inactive = NULL) {
                 visible = F)
 
     hover_annotation <- list(x = 0.5, y = -0.1,
-                             text = 'Hover over states to see details',
+                             text = 'Hover over map to see details',
                              showarrow = F,
                              font = list(size = 16))
 
@@ -175,7 +181,7 @@ plot_county_totals <- function() {
         geom_histogram(fill = 'navyblue', bins = 30) +
         scale_x_continuous(name = 'Number of abandoned wells') +
         scale_y_continuous(name = 'Number of counties') +
-        ggtitle('Number of abandonded wells per county') +
+        ggtitle('Number of abandoned wells per county') +
         theme_grey(base_size = 18)
 
     return(fig)
@@ -194,7 +200,7 @@ plot_district_totals <- function() {
                  fill = 'navyblue') +
         scale_x_discrete(name = 'District') +
         scale_y_continuous(name = 'Number of abandoned wells') +
-        ggtitle('Number of abandonded wells per district') +
+        ggtitle('Number of abandoned wells per district') +
         theme_grey(base_size = 18)
 
     return(fig)
@@ -202,7 +208,7 @@ plot_district_totals <- function() {
 
 plot_inactive_period <- function(county_name = NULL) {
 
-    title <- 'Distribution of abandoned-well lifetime '
+    title <- 'Distribution of abandoned-well lifetimes'
 
     if (is.null(county_name)) {
         data <- select(abandoned_wells, MONTHS_INACTIVE)
