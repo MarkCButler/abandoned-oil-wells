@@ -4,4 +4,6 @@
 .idea
 __pycache__
 data
+www
 rsconnect
+run_lintr.R
