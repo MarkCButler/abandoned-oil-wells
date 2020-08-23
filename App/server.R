@@ -36,6 +36,9 @@ server <- function(input, output) {
         plot_plugging_history()
     })
 
+    output$risk_level <- renderPlot({
+        plot_risk_level()
+    })
     output$district_totals_map <- renderPlotly({
         generate_map(data = region_totals, data_label = 'Districts')
     })

@@ -25,6 +25,7 @@ h2 {
 
 h3 {
     font-size: 250%;
+    text-align: center;
 }
 
 p {
@@ -152,7 +153,7 @@ ui <- fluidPage(
         column(
             width = 10,
             offset = 1,
-            h2('Are the wells getting plugged?'),
+            h2('Are the wells getting plugged?')
         )
     ),
     fluidRow(
@@ -163,7 +164,23 @@ ui <- fluidPage(
         ),
         column(
             width = 6,
-            plotOutput('plugging_history'),
+            plotOutput('plugging_history')
+        )
+    ),
+    br(),
+    fluidRow(
+        column(
+            width = 10,
+            offset = 1,
+            h3('Is the backlog of unplugged wells safe?')
+        )
+    ),
+    fluidRow(
+        column(
+            width = 8,
+            offset = 2,
+            plotOutput('risk_level'),
+            p('Place holder')
         )
     ),
     br(),

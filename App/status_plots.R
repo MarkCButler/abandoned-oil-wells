@@ -212,3 +212,22 @@ plot_inactive_period <- function(county_name = NULL) {
 
     return(fig)
 }
+
+plot_risk_level <- function() {
+    number_of_wells <- c(3, 1039, 752, 1387, 1353, 1729)
+    priority <- c('1', '2H', '2', '3', '4', 'TBD')
+    priority <- factor(x = priority, levels = priority, ordered = T)
+    data <- data.frame(number_of_wells, priority)
+
+    fig <- ggplot(data,
+                  aes(x = priority, y = number_of_wells)) +
+        geom_bar(stat = 'identity',
+                 fill = 'navyblue') +
+        scale_x_discrete(name = 'Risk level',
+                         breaks = priority) +
+        scale_y_continuous(name = 'Number of abandoned wells') +
+        ggtitle('Risk level of abandoned wells, July 2020') +
+        theme_grey(base_size = 18)
+
+    return(fig)
+}
