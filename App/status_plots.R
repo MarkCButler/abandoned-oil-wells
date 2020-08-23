@@ -77,34 +77,19 @@ region_totals <- get_region_totals()
 region_totals_old_wells <- get_region_totals(months_inactive = 240)
 
 # Helper function for plotting maps.
-setup_map_plot <- function(data_label, months_inactive) {
-
-    if (is.null(months_inactive)) {
-        title_detail <- ''
-    } else {
-        years <- months_inactive %/% 12
-        months <- months_inactive %% 12
-        if (months == 0) {
-            title_detail <- sprintf('\ninactive at least %d years', years)
-        } else {
-            title_detail <- sprintf('\ninactive at least %d years, %d months', years, months)
-        }
-    }
+setup_map_plot <- function(data_label) {
 
     if (data_label == 'Counties') {
         plot_info <- c(
             count = 'COUNTY_TOTAL',
             name = 'COUNTY_NAME',
-            hovertemplate = '%{text} County<br>Total: %{z:,d}<extra></extra>',
-            title = paste0('Number of abandoned wells per county', title_detail)
+            hovertemplate = '%{text} County<br>Total: %{z:,d}<extra></extra>'
         )
     } else {
         plot_info <- c(
             count = 'DISTRICT_TOTAL',
             name = 'DISTRICT_NAME',
-            hist_title = '',
-            hovertemplate = 'District %{text}<br>Total: %{z:,d}<extra></extra>',
-            title = paste0('Number of abandoned wells per district', title_detail)
+            hovertemplate = 'District %{text}<br>Total: %{z:,d}<extra></extra>'
         )
     }
 
@@ -117,9 +102,9 @@ setup_map_plot <- function(data_label, months_inactive) {
 # 'Districts', determines whether the choropleth map is colored by county or
 # RRC district.  (RRC is the acronym for the Texas Railroad Commission, which
 # is responsible for regulating oil and gas wells in Texas.)
-generate_map <- function(data, data_label, months_inactive = NULL) {
+generate_map <- function(data, data_label) {
 
-    plot_info <- setup_map_plot(data_label, months_inactive)
+    plot_info <- setup_map_plot(data_label)
 
     # It seems that for choropleth maps, plotly requires the column names used
     # for the plot to be indicated as formulas, e.g., ~WELL_COUNT.  Inside the
@@ -162,7 +147,6 @@ generate_map <- function(data, data_label, months_inactive = NULL) {
                   hovertemplate = plot_info['hovertemplate']) %>%
         colorbar(title = colorbar_title) %>%
         layout(geo = geo,
-               title = plot_info['title'],
                annotations = hover_annotation) %>%
         config(displayModeBar = F, scrollZoom = F)
 
@@ -212,11 +196,11 @@ plot_inactive_period <- function(county_name = NULL) {
 
     if (is.null(county_name)) {
         data <- select(abandoned_wells, MONTHS_INACTIVE)
-        title <- paste0(title, ' in all Texas counties')
+        title <- paste0(title, ' in Texas')
     } else {
         data <- filter(abandoned_wells, COUNTY_NAME == county_name) %>%
             select(MONTHS_INACTIVE)
-        title <- paste0(title, ' in ', county_name, ' County')
+        title <- paste0(title, ',\n ', county_name, ' County')
     }
 
     fig <- ggplot(data, aes(x = MONTHS_INACTIVE)) +

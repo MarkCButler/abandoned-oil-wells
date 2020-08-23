@@ -3,8 +3,8 @@ library(ggplot2)
 library(scales)
 library(tidyr)
 
-# Functions in this file generate plots that show how the variation over time
-# of different categories of wells in Texas.
+# Functions in this file generate plots showing historical variation for
+# different categories of wells in Texas.
 
 source('filenames.R')
 
@@ -28,8 +28,8 @@ plot_plugging_history <- function() {
 
     fig <- ggplot(data,
                   aes(x = Fiscal_year, y = Number_of_wells, color = type)) +
-        geom_line() +
-        geom_point() +
+        geom_line(size = 0.75) +
+        geom_point(size = 3) +
         scale_color_discrete(name = '',
                              labels = c('Abandoned wells', 'Well plugged')) +
         scale_y_continuous(name = 'Number of wells',
@@ -45,7 +45,7 @@ plot_distribution_history <- function(column_name, title) {
 
     fig <- ggplot(unplugged_wells,
                   aes_string(x = 'Date', y = column_name)) +
-        geom_point(color = 'navyblue') +
+        geom_point(color = 'navyblue', size = 3) +
         scale_y_continuous(name = 'Number of wells',
                            limits = c(0, NA),
                            labels = label_comma()) +
@@ -58,8 +58,8 @@ plot_distribution_history <- function(column_name, title) {
 plot_price_history <- function() {
     fig <- ggplot(stock_prices,
                   aes(x = Date, y = Price)) +
-        geom_point(color = 'navyblue') +
-        geom_line(color = 'navyblue') +
+        geom_point(color = 'navyblue', size = 3) +
+        geom_line(color = 'navyblue', size = 0.75) +
         scale_y_continuous(labels = dollar_format(),
                            limits = c(0, NA)) +
         ggtitle('Halliburton stock price') +
