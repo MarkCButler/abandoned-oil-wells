@@ -21,10 +21,6 @@ h1 {
 
 h2 {
     font-size: 300%;
-}
-
-h3 {
-    font-size: 250%;
     text-align: center;
 }
 
@@ -34,6 +30,11 @@ p {
 
 li {
     font-size: 150%;
+}
+
+figcaption {
+    font-size: 125%;
+    margin-top: 15px;
 }
 
 .sub-bullet {
@@ -163,7 +164,13 @@ ui <- fluidPage(
         ),
         column(
             width = 6,
-            img(src = 'flowing_water.jpg')
+            tags$figure(
+                img(src = 'flowing_water.jpg'),
+                tags$figcaption(
+                    'Brackish water flowing from an abandoned well in Pecos ',
+                    'County [3].'
+                )
+            )
         )
     ),
     br(),
@@ -187,7 +194,7 @@ ui <- fluidPage(
             width = 6,
             offset = 3,
             p(
-                'The number of recently-abandoned wells has jumped by roughly ',
+                'The number of recently abandoned wells has jumped by roughly ',
                 'a factor of 3 since late 2019.'
             ),
             tags$ul(
@@ -221,7 +228,7 @@ ui <- fluidPage(
             width = 6,
             offset = 3,
             p(
-                'The increase in recently-abandoned wells follows a trend that ',
+                'The increase in recently abandoned wells is accompanied by a trend that ',
                 'started early in 2019:  an steady increase in the number of ',
                 'inactive wells.'
             )
@@ -238,20 +245,79 @@ ui <- fluidPage(
     br(),
     fluidRow(
         column(
+            width = 6,
+            offset = 3,
+            p(
+                'The increase in the number of inactive wells is a symptom ',
+                'of a struggling industry.'
+            ),
+            tags$ul(
+                tags$li(
+                    'Halliburton (HAL) has a major role in oilfield services in ',
+                    'Texas.  The HAL stock price switched from its historical oscillating ',
+                    'pattern to one of steady decline early in 2018, several months ',
+                    'before the number of recently inactive wells began to rise.'
+                ),
+                tags$li(
+                    'The same pattern can be seen more widely in stock prices in ',
+                    'the oilfield services industry.  Cyclical changes in the oil ',
+                    'and gas industry typically can be seen first in service companies, ',
+                    'which earn revenue from exploration and from the development of new wells, ',
+                    'rather than from the sale of hydrocarbons.'
+                ),
+                tags$li(
+                    'A standard explanation of the struggles in the industry is that it is ',
+                    'no longer viewed as a growth industry.  Because of the trend away ',
+                    'from the use of hydrocarbons, investors are no longer expecting returns ',
+                    'due to growth.  Instead they are looking at value metrics and ',
+                    'current profitability.  In simple terms, investors are becoming much ',
+                    'more demanding.  Financing is difficult to obtain, and many companies ',
+                    'are struggling as a result.'
+                )
+            )
+        )
+    ),
+    br(),
+    fluidRow(
+        column(
             width = 10,
             offset = 1,
             h2('Are the wells getting plugged?')
         )
     ),
+    br(),
     fluidRow(
         column(
             width = 4,
             offset = 1,
-            p('Place holder')
+            p('A persistent backlog'),
+            tags$ul(
+                tags$li(
+                    'The Railroad Commission of Texas (RRC) is the agency responsible for ',
+                    'regulating oil and gas wells in Texas.'
+                ),
+                tags$li(
+                    'From 2004 to 2009, there was a steady decrease in the backlog of ',
+                    'abandoned wells that the RRC is responsible for plugging.'
+                ),
+                tags$li(
+                    'Since 2009, however, the backlog of wells waiting to be plugged ',
+                    'has not dropped below 5,000.'
+                )
+            )
         ),
         column(
             width = 6,
-            plotOutput('plugging_history')
+            tags$figure(
+                plotOutput('plugging_history'),
+                tags$figcaption(
+                    'The two points plotted for each year correspond to the end ',
+                    'of the RRC fiscal year (Aug. 31). Note that this data ',
+                    'tracks only wells that have been inactive with delinquent ',
+                    'paperwork for at least a year (the RRC technical definition ',
+                    'of an "orphaned" well).'
+                )
+            )
         )
     ),
     br(),
@@ -259,15 +325,42 @@ ui <- fluidPage(
         column(
             width = 10,
             offset = 1,
-            h3('Is the backlog of unplugged wells safe?')
+            h2('Is the backlog of unplugged wells safe?')
         )
     ),
+    br(),
     fluidRow(
         column(
             width = 8,
             offset = 2,
-            plotOutput('risk_level'),
-            p('Place holder')
+            plotOutput('risk_level')
+        )
+    ),
+    br(),
+    fluidRow(
+        column(
+            width = 8,
+            offset = 2,
+            p(
+                'The backlog includes high-priority plugging jobs.'
+            ),
+            tags$ul(
+                tags$li(
+                    'A possible explanation of the persistent backlog is that ',
+                    'there are ~5,000 wells considered to pose a very minor threat ',
+                    'to health and to the environment.'
+                ),
+                tags$li(
+                    'In the bar chart above, the risk level decreases from left ',
+                    'to right, and \'TBD\' represents wells for which the risk level ',
+                    'is being evaluated.'
+                ),
+                tags$li(
+                    'The second-highest risk level, \'2H\',  includes ',
+                    'over  1,000 abandoned wells.  (Although not visible in the bar ',
+                    'chart, the highest risk level includes 3 abandoned wells.)'
+                )
+            )
         )
     ),
     br(),
@@ -275,9 +368,10 @@ ui <- fluidPage(
         column(
             width = 10,
             offset = 1,
-            h2('Abandoned wells by district'),
+            h2('Abandoned wells by district')
         )
     ),
+    br(),
     fluidRow(
         column(
             width = 8,
