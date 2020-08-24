@@ -153,7 +153,6 @@ generate_map <- function(data, data_label) {
     return(fig)
 }
 
-
 plot_county_totals <- function() {
 
     county_totals <- select(abandoned_wells, COUNTY_NAME) %>%
@@ -166,25 +165,6 @@ plot_county_totals <- function() {
         scale_x_continuous(name = 'Number of abandoned wells') +
         scale_y_continuous(name = 'Number of counties') +
         ggtitle('Number of abandoned wells per county') +
-        theme_grey(base_size = 18)
-
-    return(fig)
-}
-
-plot_district_totals <- function() {
-
-    district_totals <- select(abandoned_wells, DISTRICT_NAME) %>%
-        group_by(DISTRICT_NAME) %>%
-        summarise(DISTRICT_TOTAL = n()) %>%
-        ungroup()
-
-    fig <- ggplot(district_totals,
-                  aes(x = DISTRICT_NAME, y = DISTRICT_TOTAL)) +
-        geom_bar(stat = 'identity',
-                 fill = 'navyblue') +
-        scale_x_discrete(name = 'District') +
-        scale_y_continuous(name = 'Number of abandoned wells') +
-        ggtitle('Number of abandoned wells per district') +
         theme_grey(base_size = 18)
 
     return(fig)

@@ -43,10 +43,6 @@ server <- function(input, output) {
         generate_map(data = region_totals, data_label = 'Districts')
     })
 
-    output$district_totals_hist <- renderPlot({
-        plot_district_totals()
-    })
-
     output$county_totals_map <- renderPlotly({
         generate_map(data = region_totals, data_label = 'Counties')
     })

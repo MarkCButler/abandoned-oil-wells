@@ -382,13 +382,20 @@ ui <- fluidPage(
     br(),
     fluidRow(
         column(
-            width = 6,
-            offset = 1,
-            plotOutput('district_totals_hist'),
-        ),
+            width = 8,
+            offset = 2,
+            img(src = 'shale_gas_lower48.jpg')
+        )
+    ),
+    br(),
+    fluidRow(
         column(
-            width = 4,
-            p('Some discussion')
+            width = 8,
+            offset = 2,
+            p(
+                'The distribution of abandoned wells among RRC districts roughly ',
+                'corresponds to geologic regions of Texas.'
+            )
         )
     ),
     br(),
