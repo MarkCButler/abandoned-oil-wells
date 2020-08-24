@@ -32,8 +32,12 @@ p {
     font-size: 200%;
 }
 
-ul {
+li {
     font-size: 150%;
+}
+
+.sub-bullet {
+    font-size: 85%;
 }
 
 .footnote {
@@ -53,9 +57,25 @@ ul {
 # readable.
 page_title <- 'Abandoned Oil and Gas Wells in Texas'
 
+ny_times_footnote <- paste0(
+    'Hiroko Tabuchi, "Fracking Firms Fail, Rewarding Executives and Raising ',
+    'Climate Fears," The New York Times, July 12, 2020'
+)
+study_footnote <- paste0(
+    'Ground Water Protection Council, "State Oil and Gas Agency Groundwater ',
+    'Investigations," August 2011'
+)
+tribune_footnote_1 <- paste0(
+    'Jim Malewitz, "Abandoned Texas oil wells seen as \'ticking time bombs\' ',
+    'of contamination," The Texas Tribune, Dec. 21, 2016'
+)
+tribune_footnote_2 <- paste0(
+    'Jim Malewitz, "In West Texas, abandoned well sinks land, sucks tax ',
+    'dollars," The Texas Tribune,  Jan. 22, 2017'
+)
 reuters_footnote <- paste0(
-    '[1] Nichola Groom, "Special Report: Millions of abandoned oil wells are ',
-    'leaking methane, a climate menace", www.reuters.com, June 16, 2020'
+    'Nichola Groom, "Special Report: Millions of abandoned oil wells are ',
+    'leaking methane, a climate menace," Reuters, June 16, 2020'
 )
 
 data_source_wells <- 'https://www.rrc.state.tx.us/'
@@ -84,15 +104,23 @@ ui <- fluidPage(
         ),
         column(
             width = 4,
-            p('Place holder'),
+            p('A disaster on the way?'),
             tags$ul(
                 tags$li(
-                    'Some information ',
-                    'with a footnote [1].'
+                    'The covid-19 pandemic has led to a dramatic drop in the ',
+                    'comsumption of oil and gas.',
                 ),
                 tags$li(
-                    'Some more ',
-                    'information.'
+                    'A sharp increase in the number of bankrupties in the ',
+                    'oil and gas industry is expected [1].'
+                ),
+                tags$li(
+                    'Will abandonment of wells by bankrupt operators ',
+                    'do major harm to the environment?'
+                ),
+                tags$li(
+                    'This project aims to shed light on that question by ',
+                    'exploring the current situation in Texas.'
                 )
             )
         )
@@ -102,7 +130,36 @@ ui <- fluidPage(
         column(
             offset = 1,
             width = 4,
-            p('Place holder'),
+            p('A threat to health and the environment'),
+            tags$ul(
+                tags$li(
+                    'A study covering the period from 1993 to 2008 found 30 ',
+                    'cases of groundwater contamination in Texas due to ',
+                    'abandoned oil and gas wells [2].'
+                ),
+                tags$li(
+                    'A 2016 news story reported that that since 2009, no new ',
+                    'cases of groundwater contamination had been officially ',
+                    'linked to abandoned wells [3].'
+                ),
+                tags$li(
+                    'However, it is not difficult to find anecdotal evidence ',
+                    'of such contamination in news stories [3, 4].'
+                ),
+                tags$li(
+                    'Wells not properly plugged can also leak methane, ',
+                    'contributing to global warning.',
+                    tags$ul(
+                        tags$li(
+                            class = 'sub-bullet',
+                            'The US Environmental Protection Agency estimates that ',
+                            'in 2018, such leakage was equivalent to burning 16 ',
+                            'million barrels of crude, roughly one day\'s consumption ',
+                            'for the full US [5].'
+                        )
+                    )
+                )
+            )
         ),
         column(
             width = 6,
@@ -112,28 +169,38 @@ ui <- fluidPage(
     br(),
     fluidRow(
         column(
-            width = 10,
-            offset = 1,
-            h2('Place-holder header'),
+            width = 6,
+            offset = 3,
+            h2('An increase in abandoned wells'),
         )
     ),
     fluidRow(
         column(
-            width = 5,
-            offset = 1,
+            width = 6,
+            offset = 3,
             plotOutput('recently_abandoned')
-        ),
-        column(
-            width = 5,
-            plotOutput('active_wells')
         )
     ),
     br(),
     fluidRow(
         column(
-            width = 10,
-            offset = 1,
-            p('Some text')
+            width = 6,
+            offset = 3,
+            p(
+                'The number of recently-abandoned wells has jumped by roughly ',
+                'a factor of 3 since late 2019.'
+            ),
+            tags$ul(
+                tags$li(
+                    'The final three points in the plot correspond to the months ',
+                    'May to July.  This sharp increase is probably caused by ',
+                    'the decrease in demand due to the pandemic.'
+                ),
+                tags$li(
+                    'The recent jump stands out more starkly because of the increases ',
+                    'that occurred starting in late 2019. '
+                )
+            )
         )
     ),
     br(),
@@ -145,6 +212,26 @@ ui <- fluidPage(
         ),
         column(
             width = 5,
+            plotOutput('active_wells')
+        )
+    ),
+    br(),
+    fluidRow(
+        column(
+            width = 6,
+            offset = 3,
+            p(
+                'The increase in recently-abandoned wells follows a trend that ',
+                'started early in 2019:  an steady increase in the number of ',
+                'inactive wells.'
+            )
+        )
+    ),
+    br(),
+    fluidRow(
+        column(
+            width = 6,
+            offset = 3,
             plotOutput('stock_price')
         )
     ),
@@ -303,9 +390,13 @@ ui <- fluidPage(
                 class = 'aux-header',
                 'References'
             ),
-            p(
-                class = 'footnote',
-                reuters_footnote
+            tags$ol(
+                type = '1',
+                tags$li(ny_times_footnote, class = 'footnote'),
+                tags$li(study_footnote, class = 'footnote'),
+                tags$li(tribune_footnote_1, class = 'footnote'),
+                tags$li(tribune_footnote_2, class = 'footnote'),
+                tags$li(reuters_footnote, class = 'footnote')
             )
         )
     ),
