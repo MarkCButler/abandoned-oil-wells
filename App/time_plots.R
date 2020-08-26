@@ -31,7 +31,7 @@ plot_plugging_history <- function() {
         geom_line(size = 0.75) +
         geom_point(size = 3) +
         scale_color_discrete(name = '',
-                             labels = c('Abandoned wells', 'Well plugged')) +
+                             labels = c('Abandoned wells', 'Wells plugged')) +
         scale_y_continuous(name = 'Number of wells',
                            labels = label_comma()) +
         scale_x_continuous(name = 'Year') +

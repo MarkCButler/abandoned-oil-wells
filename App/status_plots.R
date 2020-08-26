@@ -58,7 +58,7 @@ get_region_totals <- function(data = abandoned_wells, months_inactive = NULL) {
     # For the map these rows are dropped.
     county_totals <- na.omit(county_totals)
 
-    # Finte the number of missing wells per district.  Note that offshore abandoned
+    # Find the number of missing wells per district.  Note that offshore abandoned
     # wells are included in the district totals.  So on the map the sum of the
     # district totals will be larger than the sum of the county totals.
     district_totals <- select(data, DISTRICT_NAME) %>%
@@ -172,7 +172,7 @@ plot_county_totals <- function() {
 
 plot_inactive_period <- function(county_name = NULL) {
 
-    title <- 'Distribution of abandoned-well lifetimes'
+    title <- 'Age of abandoned wells'
 
     if (is.null(county_name)) {
         data <- select(abandoned_wells, MONTHS_INACTIVE)
@@ -180,7 +180,7 @@ plot_inactive_period <- function(county_name = NULL) {
     } else {
         data <- filter(abandoned_wells, COUNTY_NAME == county_name) %>%
             select(MONTHS_INACTIVE)
-        title <- paste0(title, ',\n ', county_name, ' County')
+        title <- paste0(title, ', ', county_name, ' County')
     }
 
     fig <- ggplot(data, aes(x = MONTHS_INACTIVE)) +
