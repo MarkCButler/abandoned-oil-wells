@@ -66,22 +66,33 @@ study_footnote <- paste0(
     'Ground Water Protection Council, "State Oil and Gas Agency Groundwater ',
     'Investigations," August 2011'
 )
-tribune_footnote_1 <- paste0(
+tribune_footnote <- paste0(
     'Jim Malewitz, "Abandoned Texas oil wells seen as \'ticking time bombs\' ',
     'of contamination," The Texas Tribune, Dec. 21, 2016'
 )
-tribune_footnote_2 <- paste0(
-    'Jim Malewitz, "In West Texas, abandoned well sinks land, sucks tax ',
-    'dollars," The Texas Tribune,  Jan. 22, 2017'
+mrt_footnote <- paste0(
+    'Brandon Mulder, "Old oil wells pose problem for Pecos County," ',
+    'Midland Reporter-Telegram, August 22, 2015'
 )
 reuters_footnote <- paste0(
     'Nichola Groom, "Special Report: Millions of abandoned oil wells are ',
     'leaking methane, a climate menace," Reuters, June 16, 2020'
 )
+handbook_footnote <- paste0(
+    '"Handbook of Texas," Texas State Historical Association, ',
+    'https://www.tshaonline.org/handbook'
+)
+de_footnote <- paste0(
+    'DrillingEdge, http://www.drillingedge.com/texas/hutchinson-county'
+)
+museum_footnote <- paste0(
+    'Hutchinson County Historical Museum, ',
+    'https://www.hutchinsoncountymuseum.org/oil-boom.html'
+)
 
 data_source_wells <- 'https://www.rrc.state.tx.us/'
 data_source_stocks <- 'https://finance.yahoo.com/'
-source_code <- 'https://github.com/MarkCButler/abandoned-wells-app'
+source_code <- 'https://github.com/MarkCButler/abandoned-oil-wells-app'
 
 
 ui <- fluidPage(
@@ -108,7 +119,7 @@ ui <- fluidPage(
             p('A disaster on the way?'),
             tags$ul(
                 tags$li(
-                    'The covid-19 pandemic has led to a dramatic drop in the ',
+                    'The COVID-19 pandemic has led to a dramatic drop in the ',
                     'comsumption of oil and gas.',
                 ),
                 tags$li(
@@ -144,8 +155,8 @@ ui <- fluidPage(
                     'linked to abandoned wells [3].'
                 ),
                 tags$li(
-                    'However, it is not difficult to find anecdotal evidence ',
-                    'of such contamination in news stories [3, 4].'
+                    'However, there are ongoing reports of polluted water from ',
+                    'abandoned oil wells spilling out at the surface [3, 4].'
                 ),
                 tags$li(
                     'Wells not properly plugged can also leak methane, ',
@@ -178,7 +189,7 @@ ui <- fluidPage(
         column(
             width = 6,
             offset = 3,
-            h2('An increase in abandoned wells'),
+            h2('An increase in abandoned wells')
         )
     ),
     fluidRow(
@@ -200,8 +211,8 @@ ui <- fluidPage(
             tags$ul(
                 tags$li(
                     'The final three points in the plot correspond to the months ',
-                    'May to July.  This sharp increase is probably caused by ',
-                    'the decrease in demand due to the pandemic.'
+                    'May to July in 2020.  This sharp increase was probably caused by ',
+                    'the drop in demand due to the pandemic.'
                 ),
                 tags$li(
                     'The recent jump stands out more starkly because of the increases ',
@@ -225,28 +236,27 @@ ui <- fluidPage(
     br(),
     fluidRow(
         column(
-            width = 6,
-            offset = 3,
+            width = 10,
+            offset = 1,
             p(
-                'The increase in recently abandoned wells is accompanied by a trend that ',
-                'started early in 2019:  an steady increase in the number of ',
-                'inactive wells.'
+                'The jump in recently abandoned wells has been accompanied by a ',
+                'steady increase in the number of recently inactive wells.'
             )
         )
     ),
     br(),
     fluidRow(
         column(
-            width = 6,
-            offset = 3,
+            width = 8,
+            offset = 2,
             plotOutput('stock_price')
         )
     ),
     br(),
     fluidRow(
         column(
-            width = 6,
-            offset = 3,
+            width = 8,
+            offset = 2,
             p(
                 'The increase in the number of inactive wells is a symptom ',
                 'of a struggling industry.'
@@ -260,10 +270,11 @@ ui <- fluidPage(
                 ),
                 tags$li(
                     'The same pattern can be seen more widely in stock prices in ',
-                    'the oilfield services industry.  Cyclical changes in the oil ',
-                    'and gas industry typically can be seen first in service companies, ',
-                    'which earn revenue from exploration and from the development of new wells, ',
-                    'rather than from the sale of hydrocarbons.'
+                    'the oilfield services industry.  Service companies, which',
+                    'earn revenue from exploration and from the development of ',
+                    'new wells rather than from the sale of hydrocarbons, are ',
+                    'among the first companies to lose revenue when there is a ',
+                    'downturn in the oil and gas industry.'
                 ),
                 tags$li(
                     'A standard explanation of the struggles in the industry is that it is ',
@@ -271,7 +282,7 @@ ui <- fluidPage(
                     'from the use of hydrocarbons, investors are no longer expecting returns ',
                     'due to growth.  Instead they are looking at value metrics and ',
                     'current profitability.  In simple terms, investors are becoming much ',
-                    'more demanding.  Financing is difficult to obtain, and many companies ',
+                    'more demanding, and financing is difficult to obtain.  Many companies ',
                     'are struggling as a result.'
                 )
             )
@@ -301,7 +312,7 @@ ui <- fluidPage(
                     'abandoned wells that the RRC is responsible for plugging.'
                 ),
                 tags$li(
-                    'Since 2009, however, the backlog of wells waiting to be plugged ',
+                    'Since 2009, however, the backlog of wells needing to be plugged ',
                     'has not dropped below 5,000.'
                 )
             )
@@ -311,11 +322,10 @@ ui <- fluidPage(
             tags$figure(
                 plotOutput('plugging_history'),
                 tags$figcaption(
-                    'The two points plotted for each year correspond to the end ',
-                    'of the RRC fiscal year (Aug. 31). Note that this data ',
-                    'tracks only wells that have been inactive with delinquent ',
-                    'paperwork for at least a year (the RRC technical definition ',
-                    'of an "orphaned" well).'
+                    'The upper trace shows the population of abandoned wells ',
+                    'needing to be plugged, and the lower trace shows the number ',
+                    'of wells plugged during the year.  The two points plotted ',
+                    'for each year correspond to the end of the RRC fiscal year (Aug. 31).'
                 )
             )
         )
@@ -346,9 +356,9 @@ ui <- fluidPage(
             ),
             tags$ul(
                 tags$li(
-                    'A possible explanation of the persistent backlog is that ',
-                    'there are ~5,000 wells considered to pose a very minor threat ',
-                    'to health and to the environment.'
+                    'The backlog of wells to be plugged consistently stays above 5,000.  ',
+                    'Is this because there are ~5,000 abandoned wells that pose a very ',
+                    'minor threat to health and to the environment?'
                 ),
                 tags$li(
                     'In the bar chart above, the risk level decreases from left ',
@@ -403,7 +413,7 @@ ui <- fluidPage(
         column(
             width = 10,
             offset = 1,
-            h2('Abandoned wells by county'),
+            h2('Abandoned wells by county')
         )
     ),
     fluidRow(
@@ -416,13 +426,49 @@ ui <- fluidPage(
     br(),
     fluidRow(
         column(
-            width = 4,
-            offset = 1,
-            p('Some discussion')
-        ),
+            width = 8,
+            offset = 2,
+            p('There are stories behind the concentrations of abandoned wells'),
+            tags$ul(
+                tags$li(
+                    'In Hutchinson County (North Texas), the primary industry ',
+                    'since the 1920s has been oil and gas [6], but production has ',
+                    'been dropping for decades.  Between 1999 and 2019, gas ',
+                    'production and oil production dropped by ',
+                    '72% and 60%, respectively [7].'
+                ),
+                tags$li(
+                    'Pecos County (West Texas) has many wells drilled decades ago by ',
+                    'wildcatters (speculators who drilled outside of proven areas).',
+                    'Wells that didn\'t turn out to be productive were simply ',
+                    'abandoned [3, 4].',
+                    tags$ul(
+                        tags$li(
+                            class = 'sub-bullet',
+                            'Wildcatters drilled in Pecos county because of its ',
+                            'proximity to productive regions of the Permian Basin.  ',
+                            'Large regions of Pecos county do not have productive ',
+                            'wells, however.'
+                        )
+                    )
+                )
+            )
+        )
+    ),
+    br(),
+    fluidRow(
         column(
             width = 6,
-            plotOutput('county_totals_hist'),
+            offset = 3,
+            plotOutput('county_totals_hist')
+        )
+    ),
+    br(),
+    fluidRow(
+        column(
+            width = 6,
+            offset = 3,
+            p('Most counties have fewer than 50 abandoned wells.')
         )
     ),
     br(),
@@ -430,18 +476,28 @@ ui <- fluidPage(
         column(
             width = 10,
             offset = 1,
-            h2('How long have wells been abandoned?'),
+            h2('How long have wells been abandoned?')
         )
     ),
     fluidRow(
         column(
             width = 6,
             offset = 1,
-            plotOutput('inactive_period_texas'),
+            plotOutput('inactive_period_texas')
         ),
         column(
             width = 4,
-            p('Some discussion')
+            p('A large number of wells have officially been abandoned since ',
+              'Jan 1998.'),
+            tags$ul(
+                tags$li(
+                    'In many cases, little is known about wells that were drilled ',
+                    'decades ago [3, 4].'
+                ),
+                tags$li(
+                    'There is an ongoing effort to search for abandoned wells in Texas [3].'
+                )
+            )
         )
     ),
     br(),
@@ -449,7 +505,7 @@ ui <- fluidPage(
         column(
             width = 10,
             offset = 1,
-            h2('Abandoned wells inactive at least 20 years'),
+            h2('Abandoned wells inactive at least 20 years')
         )
     ),
     fluidRow(
@@ -462,25 +518,81 @@ ui <- fluidPage(
     br(),
     fluidRow(
         column(
+            width = 5,
             offset = 1,
-            width = 4,
-            p('Pecos County'),
+            plotOutput('inactive_period_pecos')
         ),
         column(
-            width = 6,
-            plotOutput('inactive_period_pecos'),
+            width = 5,
+            plotOutput('inactive_period_hutchinson')
         )
     ),
     br(),
     fluidRow(
         column(
-            width = 6,
+            width = 10,
             offset = 1,
-            plotOutput('inactive_period_hutchinson'),
-        ),
+            p('A closer look at two counties'),
+            tags$ul(
+                tags$li(
+                    'Unsuccessful exploration by wildcatters has left a concentration of old ',
+                    'abandoned wells in Pecos County.'
+                ),
+                tags$li(
+                    'Hutchinson County has a history as an oil boom town dating back ',
+                    'to the 1920s [8], and so it is not surprising that it ',
+                    'has a number of old abandoned wells.  ',
+                    tags$ul(
+                        tags$li(
+                            class = 'sub-bullet',
+                            'The recent history of Hutchinson County\'s decline in oil ',
+                            'and gas production is reflected in the distribution of ',
+                            'abandoned-well lifetimes.  For instance, the histogram shows that ',
+                            'there was a surge in the number of abandoned wells early in 2016.',
+                            'The price of crude oil (West Texas Intermediate) dropped steadily ',
+                            'during the preceding two years, from ~$100 per barrel early in ',
+                            '2014 to ~$30 per barrel early in 2016.  The HAL stock price also ',
+                            'reached a low early in 2016 (see the figure higher in the page).'
+                        )
+                    )
+                )
+            )
+        )
+    ),
+    br(),
+    fluidRow(
         column(
-            width = 4,
-            p('Hutchinson County'),
+            width = 10,
+            offset = 1,
+            h2('Conclusion')
+        )
+    ),
+    fluidRow(
+        column(
+            width = 10,
+            offset = 1,
+            p(
+                style = 'font-size: 165%;',
+                'The Railroad Commission of Texas (RRC) has a track record of successfully ',
+                'dealing with the problem of abandoned wells in Texas.  The number of ',
+                'abandoned wells needing to be plugged has significantly decreased in the past ',
+                'fifteen years.'
+            ),
+            p(
+                style = 'font-size: 165%;',
+                'The data does show ',
+                'a jump in the number of recently abandoned wells, but the increase is ',
+                'only a fraction of the size of the RRC\'s persistent backlog of abandoned wells.'
+
+            ),
+            p(
+                style = 'font-size: 165%;',
+                'The lack of progress in reducing this backlog in recent years ',
+                'is a concern, particularly since the backlog includes many wells that pose a ',
+                'significant risk to health and to the environment.  Given the ',
+                'ongoing struggles of the oil and gas industry, the backlog is likely to ',
+                'increase unless the RRC is able to increase its rate of plugging abandoned wells.'
+            )
         )
     ),
     br(),
@@ -495,9 +607,12 @@ ui <- fluidPage(
                 type = '1',
                 tags$li(ny_times_footnote, class = 'footnote'),
                 tags$li(study_footnote, class = 'footnote'),
-                tags$li(tribune_footnote_1, class = 'footnote'),
-                tags$li(tribune_footnote_2, class = 'footnote'),
-                tags$li(reuters_footnote, class = 'footnote')
+                tags$li(tribune_footnote, class = 'footnote'),
+                tags$li(mrt_footnote, class = 'footnote'),
+                tags$li(reuters_footnote, class = 'footnote'),
+                tags$li(handbook_footnote, class = 'footnote'),
+                tags$li(de_footnote, class = 'footnote'),
+                tags$li(museum_footnote, class = 'footnote')
             )
         )
     ),
