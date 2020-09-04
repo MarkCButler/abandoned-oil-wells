@@ -183,9 +183,12 @@ plot_inactive_period <- function(county_name = NULL) {
         title <- paste0(title, ', ', county_name, ' County')
     }
 
-    fig <- ggplot(data, aes(x = MONTHS_INACTIVE)) +
+    data <- transmute(data,
+                      YEARS_INACTIVE = MONTHS_INACTIVE / 12)
+
+    fig <- ggplot(data, aes(x = YEARS_INACTIVE)) +
         geom_histogram(fill = 'navyblue', bins = 30) +
-        scale_x_continuous(name = 'Number of months inactive') +
+        scale_x_continuous(name = 'Number of years inactive') +
         scale_y_continuous(name = 'Number of abandoned wells') +
         ggtitle(title) +
         theme_grey(base_size = 18)

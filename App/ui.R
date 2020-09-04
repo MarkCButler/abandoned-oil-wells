@@ -120,7 +120,7 @@ ui <- fluidPage(
             tags$ul(
                 tags$li(
                     'The COVID-19 pandemic has led to a dramatic drop in the ',
-                    'comsumption of oil and gas.',
+                    'consumption of oil and gas.',
                 ),
                 tags$li(
                     'A sharp increase in the number of bankrupties in the ',
