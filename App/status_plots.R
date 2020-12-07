@@ -46,8 +46,8 @@ get_region_totals <- function(data = abandoned_wells, months_inactive = NULL) {
     # the COUNTY_TOTAL column to zero.
     county_totals <- select(data, COUNTY_NAME) %>%
         group_by(COUNTY_NAME) %>%
-        summarise(COUNTY_TOTAL = n()) %>%
-        ungroup() %>%
+        summarise(COUNTY_TOTAL = n(),
+                  .groups = 'drop') %>%
         full_join(counties_csv, by = 'COUNTY_NAME')
     bool_index <- is.na(county_totals[['COUNTY_TOTAL']])
     county_totals[bool_index, 'COUNTY_TOTAL'] <- 0
@@ -63,8 +63,8 @@ get_region_totals <- function(data = abandoned_wells, months_inactive = NULL) {
     # district totals will be larger than the sum of the county totals.
     district_totals <- select(data, DISTRICT_NAME) %>%
         group_by(DISTRICT_NAME) %>%
-        summarise(DISTRICT_TOTAL = n()) %>%
-        ungroup()
+        summarise(DISTRICT_TOTAL = n(),
+                  .groups = 'drop')
 
     # Join county and district totals.  This
     region_totals <- inner_join(county_totals, district_totals, by = 'DISTRICT_NAME')
@@ -157,8 +157,8 @@ plot_county_totals <- function() {
 
     county_totals <- select(abandoned_wells, COUNTY_NAME) %>%
         group_by(COUNTY_NAME) %>%
-        summarise(COUNTY_TOTAL = n()) %>%
-        ungroup()
+        summarise(COUNTY_TOTAL = n(),
+                  .groups = 'drop')
 
     fig <- ggplot(county_totals, aes(x = COUNTY_TOTAL)) +
         geom_histogram(fill = 'navyblue', bins = 30) +
