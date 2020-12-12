@@ -1,0 +1,20 @@
+# This file can be used to create an environment for running scrape.py.  It
+# includes only the packages that were requested in creating the environment.
+# Platform-specific dependencies for linux-64 are given in the file
+# linux_environment.yml.
+#
+# Command to create environment:
+#
+# conda env create -f environment.yml
+#
+name: scrape
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - lxml=4.6.2
+  - beautifulsoup4=4.9.3
+  - pandas=1.1.3
+  - python=3.8.5
+  - requests=2.25.0
+  - tika=1.24
