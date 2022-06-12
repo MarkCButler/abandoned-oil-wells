@@ -20,7 +20,6 @@ __pycache__
 data/
 images/
 markdown_output/
-renv/
 rsconnect/
 www/
 scratch*
