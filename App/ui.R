@@ -92,7 +92,7 @@ museum_footnote <- paste0(
 
 data_source_wells <- 'https://www.rrc.state.tx.us/'
 data_source_stocks <- 'https://finance.yahoo.com/'
-source_code <- 'https://github.com/MarkCButler/abandoned-oil-wells-app'
+source_code <- 'https://github.com/MarkCButler/abandoned-oil-wells'
 
 
 ui <- fluidPage(
